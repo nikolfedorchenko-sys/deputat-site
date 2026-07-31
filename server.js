@@ -12,7 +12,7 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const SQLiteStore = require('connect-sqlite3')(session);
+const SQLiteStore = require('better-sqlite3-session-store')(session);
 const helmet = require('helmet');
 const bcrypt = require('bcryptjs');
 
@@ -84,10 +84,15 @@ app.use(
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 app.use(express.json({ limit: '1mb' }));
 
-// ── Сесії (зберігаються у файлі db/sessions.sqlite) ──────────────────────────
+// ── Сесії ────────────────────────────────────────────────────────────────────
+// Зберігаємо у тій самій БД better-sqlite3 (таблиця sessions), тож не потрібен
+// окремий драйвер node-sqlite3. Прострочені сесії чистяться раз на 15 хв.
 app.use(
   session({
-    store: new SQLiteStore({ db: 'sessions.sqlite', dir: path.join(__dirname, 'db') }),
+    store: new SQLiteStore({
+      client: db,
+      expired: { clear: true, intervalMs: 15 * 60 * 1000 },
+    }),
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,

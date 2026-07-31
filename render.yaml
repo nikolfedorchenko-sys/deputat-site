@@ -10,6 +10,8 @@ services:
     startCommand: npm start
     autoDeploy: true             # автодеплой при кожному push у гілку main
     envVars:
+      - key: NODE_VERSION
+        value: "22"              # LTS: є готові бінарники better-sqlite3/sharp
       - key: SESSION_SECRET
         generateValue: true      # Render згенерує випадковий секрет сам
       - key: ADMIN_USERNAME

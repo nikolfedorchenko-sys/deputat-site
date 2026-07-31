@@ -1,0 +1,20 @@
+# Render Blueprint для сайту депутата (окремий репозиторій).
+# render.com → New → Blueprint → підключити цей репозиторій.
+# Значення ADMIN_* вводяться вручну в дашборді (sync:false — не зберігаються в git).
+services:
+  - type: web
+    name: deputat-site
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true             # автодеплой при кожному push у гілку main
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true      # Render згенерує випадковий секрет сам
+      - key: ADMIN_USERNAME
+        sync: false              # ввести в дашборді
+      - key: ADMIN_PASSWORD
+        sync: false              # ввести в дашборді (надійний пароль!)
+      - key: SECURE_COOKIES
+        value: "1"               # Render працює за HTTPS

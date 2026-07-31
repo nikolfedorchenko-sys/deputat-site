@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Адмінпанель</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin">
+
+<header class="admin-top">
+  <div class="admin-top__inner">
+    <strong>Адмінпанель</strong>
+    <div class="admin-top__right">
+      <a href="/" target="_blank" rel="noopener">Відкрити сайт ↗</a>
+      <span class="user">👤 <%= username %></span>
+      <form method="POST" action="/manager/logout" style="display:inline">
+        <button class="btn btn--sm">Вийти</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<div class="admin-layout">
+  <!-- Вкладки -->
+  <nav class="admin-tabs" id="tabs">
+    <button class="tab is-active" data-tab="news">📰 Новини</button>
+    <button class="tab" data-tab="gallery">🖼️ Галерея</button>
+    <button class="tab" data-tab="texts">✏️ Тексти секцій</button>
+    <button class="tab" data-tab="achievements">🏅 Досягнення</button>
+    <button class="tab" data-tab="contacts">📞 Контакти</button>
+    <button class="tab" data-tab="media">🎯 Фото / логотип</button>
+    <button class="tab" data-tab="submissions">✉️ Звернення</button>
+  </nav>
+
+  <main class="admin-main">
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- ─── Новини ─── -->
+    <section class="panel is-active" data-panel="news">
+      <div class="panel__head">
+        <h2>Новини</h2>
+        <button class="btn btn--accent" id="newsNewBtn">+ Нова новина</button>
+      </div>
+      <div id="newsList" class="list"></div>
+
+      <!-- Форма новини (прихована, показується при створенні/редагуванні) -->
+      <dialog id="newsDialog" class="dialog">
+        <form id="newsForm" method="dialog">
+          <h3 id="newsFormTitle">Нова новина</h3>
+          <input type="hidden" name="id" />
+          <label>Заголовок*<input type="text" name="title" required maxlength="200" /></label>
+          <div class="row">
+            <label>Дата*<input type="date" name="date" required /></label>
+            <label>Тег<input type="text" name="tag" maxlength="60" placeholder="напр. ЖКГ" /></label>
+          </div>
+          <label>Текст<textarea name="body" rows="6"></textarea></label>
+          <label>Статус
+            <select name="status">
+              <option value="draft">Чернетка</option>
+              <option value="published">Опубліковано</option>
+            </select>
+          </label>
+          <label>Головне фото<input type="file" name="cover" accept="image/*" /></label>
+          <div id="newsCoverPreview" class="preview-row"></div>
+          <label>Додаткові фото (до поста)<input type="file" name="images" accept="image/*" multiple /></label>
+          <div id="newsImagesPreview" class="preview-row"></div>
+          <div class="dialog__actions">
+            <button type="button" class="btn" data-close>Скасувати</button>
+            <button type="submit" class="btn btn--accent">Зберегти</button>
+          </div>
+        </form>
+      </dialog>
+    </section>
+
+    <!-- ─── Галерея ─── -->
+    <section class="panel" data-panel="gallery">
+      <div class="panel__head">
+        <h2>Фотогалерея</h2>
+        <form id="galleryUploadForm" class="inline-upload">
+          <input type="file" name="images" accept="image/*" multiple required />
+          <button class="btn btn--accent" type="submit">Завантажити</button>
+        </form>
+      </div>
+      <p class="hint">Перетягуйте картки, щоб змінити порядок. Підпис зберігається автоматично.</p>
+      <div id="galleryGrid" class="admin-gallery"></div>
+    </section>
+
+    <!-- ─── Тексти секцій ─── -->
+    <section class="panel" data-panel="texts">
+      <div class="panel__head"><h2>Тексти секцій</h2></div>
+      <form id="textsForm" class="settings-form">
+        <label>Гасло (Hero)<input type="text" data-key="hero_slogan" /></label>
+        <label>Фракція<input type="text" data-key="hero_faction" /></label>
+        <label>Роль 1<input type="text" data-key="hero_role1" /></label>
+        <label>Роль 2<input type="text" data-key="hero_role2" /></label>
+        <label>Біографія<textarea data-key="bio" rows="5"></textarea></label>
+        <label>Освіта<textarea data-key="education" rows="3"></textarea></label>
+        <label>Професійний шлях<textarea data-key="career" rows="4"></textarea></label>
+        <label>Округ<input type="text" data-key="activity_district" /></label>
+        <label>Посада в комісії<input type="text" data-key="activity_position" /></label>
+        <label>Опис діяльності<textarea data-key="activity_intro" rows="3"></textarea></label>
+        <label>Зона відповідальності (Київміськбуд)<input type="text" data-key="board_zone" /></label>
+        <hr />
+        <label>SEO title<input type="text" data-key="meta_title" /></label>
+        <label>SEO description<textarea data-key="meta_description" rows="2"></textarea></label>
+        <button class="btn btn--accent" type="submit">Зберегти тексти</button>
+      </form>
+    </section>
+
+    <!-- ─── Досягнення ─── -->
+    <section class="panel" data-panel="achievements">
+      <div class="panel__head">
+        <h2>Досягнення (картки)</h2>
+        <button class="btn btn--accent" id="achNewBtn">+ Нова картка</button>
+      </div>
+      <p class="hint">Перетягуйте картки, щоб змінити порядок.</p>
+      <div id="achList" class="ach-list"></div>
+    </section>
+
+    <!-- ─── Контакти ─── -->
+    <section class="panel" data-panel="contacts">
+      <div class="panel__head"><h2>Контакти</h2></div>
+      <form id="contactsForm" class="settings-form">
+        <label>Адреса<input type="text" data-key="contact_address" /></label>
+        <label>Телефони<input type="text" data-key="contact_phones" /></label>
+        <label>Примітка до телефонів<input type="text" data-key="contact_phones_note" /></label>
+        <label>Email<input type="text" data-key="contact_email" /></label>
+        <label>Графік прийому<input type="text" data-key="contact_hours" /></label>
+        <label>Facebook<input type="text" data-key="facebook_url" /></label>
+        <label>Посилання на Київраду<input type="text" data-key="kyivrada_url" /></label>
+        <label>Код карти (HTML &lt;iframe&gt; Google Maps)<textarea data-key="map_embed" rows="3"></textarea></label>
+        <button class="btn btn--accent" type="submit">Зберегти контакти</button>
+      </form>
+    </section>
+
+    <!-- ─── Фото / логотип ─── -->
+    <section class="panel" data-panel="media">
+      <div class="panel__head"><h2>Головне фото та логотип</h2></div>
+      <div class="media-grid">
+        <div class="media-box">
+          <h3>Головне фото депутата</h3>
+          <img id="heroPhotoPreview" class="media-preview" alt="Головне фото" />
+          <input type="file" id="heroPhotoInput" accept="image/*" />
+          <p class="hint">Зображення оновиться одразу після вибору файлу.</p>
+        </div>
+        <div class="media-box">
+          <h3>Логотип</h3>
+          <img id="logoPreview" class="media-preview media-preview--logo" alt="Логотип" />
+          <input type="file" id="logoInput" accept="image/*" />
+        </div>
+        <div class="media-box">
+          <h3>OpenGraph-зображення (для соцмереж)</h3>
+          <img id="ogPreview" class="media-preview" alt="OG image" />
+          <input type="file" id="ogInput" accept="image/*" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Звернення ─── -->
+    <section class="panel" data-panel="submissions">
+      <div class="panel__head"><h2>Звернення з форми</h2></div>
+      <div id="subsList" class="subs"></div>
+    </section>
+  </main>
+</div>
+
+<!-- Форма-діалог досягнення -->
+<dialog id="achDialog" class="dialog">
+  <form id="achForm" method="dialog">
+    <h3 id="achFormTitle">Нова картка</h3>
+    <input type="hidden" name="id" />
+    <label>Назва*<input type="text" name="title" required maxlength="120" /></label>
+    <label>Опис<textarea name="body" rows="4"></textarea></label>
+    <div class="dialog__actions">
+      <button type="button" class="btn" data-close>Скасувати</button>
+      <button type="submit" class="btn btn--accent">Зберегти</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>

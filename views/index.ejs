@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title><%= s.meta_title || s.hero_name %></title>
+  <meta name="description" content="<%= s.meta_description %>" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="<%= s.meta_title || s.hero_name %>" />
+  <meta property="og:description" content="<%= s.meta_description %>" />
+  <meta property="og:image" content="<%= s.og_image || s.hero_photo %>" />
+  <meta property="og:locale" content="uk_UA" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<!-- Прогрес-бар прокрутки -->
+<div id="pbar"></div>
+
+<!-- ─────────────── Навбар ─────────────── -->
+<nav id="siteNav" class="nav" aria-label="Головна навігація">
+  <a class="nav__brand" href="#top" aria-label="На початок">
+    <span class="mono">ЮТ</span>
+    <span class="nav__id">
+      <span class="nav__name"><%= s.hero_name %></span>
+      <span class="nav__role">Депутат Київради · округ №12</span>
+    </span>
+  </a>
+
+  <div class="nav__links" id="navLinks">
+    <a href="#about" class="nl" data-target="about">Про депутата</a>
+    <a href="#activity" class="nl" data-target="activity">Діяльність</a>
+    <a href="#results" class="nl" data-target="results">Досягнення</a>
+    <a href="#news" class="nl" data-target="news">Новини</a>
+    <a href="#gallery" class="nl" data-target="gallery">Галерея</a>
+    <a href="#contacts" class="nl" data-target="contacts">Контакти</a>
+  </div>
+
+  <a href="#contacts" class="btn-g nav__cta">Звернутися</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main id="top">
+  <!-- ─────────────── Hero ─────────────── -->
+  <section class="hero" data-reveal="load">
+    <span class="aur aur--indigo"></span>
+    <span class="aur aur--cyan"></span>
+    <div class="hero__dots" data-parallax></div>
+
+    <div class="hero__inner wrap">
+      <div class="hero__text">
+        <div class="eyebrow" data-rv><span class="eyebrow__line"></span><%= s.hero_eyebrow %></div>
+        <% const _p = String(s.hero_name || '').split(' '); const _surname = _p.shift(); const _rest = _p.join(' '); %>
+        <h1 class="gtext hero__name" data-rv><%= _surname %><br><%= _rest %></h1>
+        <div class="chips" data-rv>
+          <span class="chip"><%= s.hero_role1 %></span>
+          <span class="chip"><%= s.hero_role2 %></span>
+        </div>
+        <p class="lead" data-rv><%= s.hero_slogan %></p>
+        <div class="hero__actions" data-rv>
+          <a href="#contacts" class="btn-g btn-lg">Звернутися до депутата</a>
+          <a href="#news" class="btn-glass btn-lg">Новини округу</a>
+        </div>
+      </div>
+      <div class="hero__photo" data-rv="scale">
+        <span class="hero__glow"></span>
+        <div class="hero__frame">
+          <img src="<%= s.hero_photo %>" alt="Фото: <%= esc(s.hero_name) %>" width="460" height="520" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── Про депутата ─────────────── -->
+  <section id="about" class="section section--white" data-reveal>
+    <div class="wrap">
+      <div class="sec-head" data-rv><span class="sec-bar"></span><h2>Про депутата</h2></div>
+      <div class="about-grid">
+        <div class="about-left" data-rv="left">
+          <figure class="gitem about-photo" data-rv="clip">
+            <img class="gzoom" src="<%= s.hero_photo %>" alt="Юрій Тихонович — робочий момент" />
+            <figcaption class="gcap">Юрій Тихонович — робочий момент</figcaption>
+          </figure>
+          <div class="fact-card">
+            <div><span>Рік народження:</span> <strong>1970</strong></div>
+            <div><span>Фракція:</span> <strong>«Європейська Солідарність»</strong></div>
+            <div><span>Округ:</span> <strong>№12, Солом’янський район</strong></div>
+            <div><span>Депутат Київради:</span> <strong>з 2020 року</strong></div>
+          </div>
+        </div>
+
+        <div class="about-right" data-rv="right">
+          <div class="prose about-bio"><%- paragraphs(s.bio) %></div>
+          <h3 class="about-subhead">Освіта та кар’єра</h3>
+          <div class="timeline">
+            <div class="tl-row">
+              <div class="tl-year">2020</div>
+              <div class="tl-dot"><span class="tl-mark tl-mark--grad"></span><span class="tl-line"></span></div>
+              <div class="tl-body">Обраний депутатом Київської міської ради IX скликання, округ №12. Перший заступник голови постійної комісії з питань ЖКГ та ПЕК.</div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-year">з 2020</div>
+              <div class="tl-dot"><span class="tl-mark"></span><span class="tl-line"></span></div>
+              <div class="tl-body">Заступник директора ТОВ «АЙ СІ ТІ»; член правління ПрАТ «ХК «Київміськбуд».</div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-year">2011–2013</div>
+              <div class="tl-dot"><span class="tl-mark"></span><span class="tl-line"></span></div>
+              <div class="tl-body">Засновник інвестиційно-будівельних компаній «Альянс капітал» (2011) та «Столиця майбутнього» (2013).</div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-year">2011</div>
+              <div class="tl-dot"><span class="tl-mark"></span><span class="tl-line"></span></div>
+              <div class="tl-body">КНУБА — «Міське будівництво та господарство». Раніше (2007) — Київський славістичний університет, «Менеджмент організацій».</div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-year">2004–2007</div>
+              <div class="tl-dot"><span class="tl-mark"></span></div>
+              <div class="tl-body">Заступник директора КП «Інженерний центр»; помічник-консультант народних депутатів України.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── Депутатська діяльність ─────────────── -->
+  <section id="activity" class="section section--tint" data-reveal>
+    <div class="wrap">
+      <div class="sec-head" data-rv><span class="sec-bar"></span><h2>Депутатська діяльність</h2></div>
+      <div class="cards-3">
+        <article class="card card-t" data-rv="scale" data-tilt>
+          <div class="ic ic--grid"><span></span><span></span><span></span><span></span></div>
+          <h3>Округ №12</h3>
+          <span class="ibar"></span>
+          <p><%= s.activity_district %></p>
+        </article>
+        <article class="card card-t" data-rv="scale" data-tilt>
+          <div class="ic ic--lines"><span></span><span></span><span></span></div>
+          <h3>Комісія з питань ЖКГ та ПЕК</h3>
+          <span class="ibar"></span>
+          <p><%= s.activity_position %></p>
+        </article>
+        <article class="card card-t" data-rv="scale" data-tilt>
+          <div class="ic ic--circle"><span></span></div>
+          <h3>Напрямки роботи</h3>
+          <span class="ibar"></span>
+          <p><%= s.activity_intro %></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── Результати роботи ─────────────── -->
+  <section id="results" class="section section--results" data-reveal>
+    <div class="results__dots"></div>
+    <span class="aur aur--indigo aur--soft"></span>
+    <div class="wrap">
+      <div class="sec-head" data-rv><span class="sec-bar"></span><h2>Результати роботи</h2></div>
+      <div class="cards-4">
+        <% achievements.forEach(function(a, i){ const m = String(a.title).match(/^(\d+)(.*)$/); %>
+          <div class="stat <%= i === 0 ? 'stat--hl' : '' %>" data-rv="scale">
+            <div class="gnum stat__num">
+              <% if (m) { %><span data-count="<%= m[1] %>">0</span><%= m[2] %><% } else { %><%= a.title %><% } %>
+            </div>
+            <div class="stat__desc"><%= a.body %></div>
+          </div>
+        <% }); %>
+        <% if (achievements.length === 0) { %>
+          <p class="muted">Показники додаються в адмінпанелі (розділ «Досягнення»).</p>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── Новини ─────────────── -->
+  <section id="news" class="section section--white" data-reveal>
+    <div class="wrap">
+      <div class="news-head" data-rv>
+        <div class="sec-head"><span class="sec-bar"></span><h2>Новини</h2></div>
+        <a class="all-news" href="#news">Усі новини →</a>
+      </div>
+      <div class="cards-3">
+        <% news.slice(0, 6).forEach(function(n){ %>
+          <article class="news-card card-t" data-rv="scale" data-tilt>
+            <div class="gitem news-card__img">
+              <% if (n.cover_image) { %>
+                <img class="gzoom" src="<%= n.cover_image %>" alt="<%= esc(n.title) %>" loading="lazy" />
+              <% } else { %>
+                <div class="gzoom ph-img"><span>[ фото новини ]</span></div>
+              <% } %>
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__meta">
+                <% if (n.tag) { %><span class="tag"><%= n.tag %></span><% } %>
+                <time datetime="<%= n.date %>"><%= n.date.split('-').reverse().join('.') %></time>
+              </div>
+              <h3 class="news-card__title"><%= n.title %></h3>
+              <% if (n.body) { %><p class="news-card__text"><%= n.body.length > 120 ? n.body.slice(0,120) + '…' : n.body %></p><% } %>
+            </div>
+          </article>
+        <% }); %>
+        <% if (news.length === 0) { %>
+          <p class="muted">Новини з’являться незабаром.</p>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── Галерея ─────────────── -->
+  <section id="gallery" class="section section--tint" data-reveal>
+    <div class="wrap">
+      <div class="sec-head" data-rv><span class="sec-bar"></span><h2>Галерея</h2></div>
+      <% if (gallery.length) { %>
+        <div class="masonry" id="galleryGrid">
+          <% gallery.forEach(function(g){ %>
+            <figure class="gitem masonry__item" data-rv="clip">
+              <img class="gzoom" src="<%= g.path %>" alt="<%= esc(g.caption) || 'Фото з галереї' %>" loading="lazy" />
+              <% if (g.caption) { %><figcaption class="gcap"><%= g.caption %></figcaption><% } %>
+            </figure>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <p class="muted">Фотографії додаються в адмінпанелі.</p>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- ─────────────── Приймальня / контакти ─────────────── -->
+  <section id="contacts" class="section section--contacts" data-reveal>
+    <div class="contacts__dots"></div>
+    <span class="aur aur--cyan aur--soft"></span>
+    <div class="wrap">
+      <div class="sec-head sec-head--light" data-rv><span class="sec-bar"></span><h2>Депутатська приймальня</h2></div>
+      <div class="contacts-grid">
+        <div class="contacts-left" data-rv="left">
+          <div class="contact-block">
+            <div class="contact-label">Адреса</div>
+            <%= s.contact_address %>
+            <% if (s.contact_hours) { %><br><span class="contact-note"><%= s.contact_hours %></span><% } %>
+          </div>
+          <div class="contact-block">
+            <div class="contact-label">Телефони</div>
+            <%= s.contact_phones %>
+          </div>
+          <% if (s.contact_email) { %>
+          <div class="contact-block">
+            <div class="contact-label">Email</div>
+            <%= s.contact_email %>
+          </div>
+          <% } %>
+
+          <div class="contact-map">
+            <% if (s.map_embed) { %>
+              <%- s.map_embed %>
+            <% } else { %>
+              <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=30.36%2C50.39%2C30.53%2C50.47&amp;layer=mapnik&amp;marker=50.4437%2C30.4520"
+                title="Карта — Солом’янський район" loading="lazy"></iframe>
+            <% } %>
+          </div>
+          <div class="contact-mapnote">Карта: © OpenStreetMap contributors</div>
+        </div>
+
+        <!-- Форма звернення -->
+        <form class="contact-form card" id="contactForm" novalidate data-rv="right">
+          <h3>Форма звернення</h3>
+          <p class="contact-form__sub">Опишіть проблему — команда депутата відповість на вказаний контакт.</p>
+          <div id="formMsg" class="form__msg" role="status" aria-live="polite"></div>
+
+          <div class="form-grid">
+            <label class="field">Ім’я та прізвище
+              <input type="text" name="name" required minlength="2" maxlength="120" autocomplete="name" placeholder="Ваше ім’я" />
+            </label>
+            <label class="field">Телефон або email
+              <input type="text" name="contact" required minlength="3" maxlength="200" placeholder="Як з вами зв’язатися" />
+            </label>
+            <label class="field field--full">Тема звернення
+              <select name="subject">
+                <option value="ЖКГ">ЖКГ</option>
+                <option value="Благоустрій">Благоустрій</option>
+                <option value="Інше" selected>Інше</option>
+              </select>
+            </label>
+            <label class="field field--full">Повідомлення
+              <textarea name="message" required minlength="5" maxlength="4000" rows="4" placeholder="Опишіть суть звернення…"></textarea>
+            </label>
+          </div>
+
+          <!-- Honeypot -->
+          <div class="hp" aria-hidden="true">
+            <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
+          <button type="submit" class="btn-g btn-lg btn-block">Надіслати звернення</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ─────────────── Футер ─────────────── -->
+<div class="foot-line"></div>
+<footer class="footer" data-reveal>
+  <div class="wrap foot-inner" data-rv>
+    <div class="foot-brand">
+      <span class="mono">ЮТ</span>
+      <span class="foot-id"><%= s.hero_name %><br><span>Депутат Київради · округ №12</span></span>
+    </div>
+    <nav class="foot-links" aria-label="Офіційні посилання">
+      <% if (s.kyivrada_url) { %><a href="<%= s.kyivrada_url %>" target="_blank" rel="noopener">Профіль на сайті Київради</a><% } %>
+      <% if (s.facebook_url) { %><a href="<%= s.facebook_url %>" target="_blank" rel="noopener">Facebook: Юрій Тихонович</a><% } %>
+      <a href="/manager">Адмінпанель</a>
+    </nav>
+    <div class="foot-copy">© <%= new Date().getFullYear() %>. Усі права захищені.</div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+node_modules/
+.env
+*.log
+
+# Файлова БД та сесії (генеруються під час роботи)
+db/data.sqlite
+db/data.sqlite-*
+db/sessions.sqlite
+db/sessions.sqlite-*
+
+# Завантажені користувачем зображення — не тримаємо в репозиторії,
+# але саму папку зберігаємо через .gitkeep
+uploads/*
+!uploads/.gitkeep

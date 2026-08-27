@@ -250,6 +250,7 @@ if (galleryCount === 0) {
     ['/img/gallery/g38.jpg', 'Передача автотранспорту'],
     ['/img/gallery/g39.jpg', 'Обладнання для екіпажів БпЛА'],
     ['/img/gallery/g40.jpg', 'Поїздка до Слов’янська'],
+    ['/img/gallery/g41.jpg', 'У робочому кабінеті над планами округу'],
   ];
   const gins = db.prepare('INSERT INTO gallery (path, caption, sort_order) VALUES (?, ?, ?)');
   const gtx = db.transaction((rows) => rows.forEach((r, i) => gins.run(r[0], r[1], i + 1)));

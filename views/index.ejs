@@ -253,16 +253,22 @@
   <!-- ─────────────── Галерея ─────────────── -->
   <section id="gallery" class="section section--tint" data-reveal>
     <div class="wrap">
-      <div class="sec-head" data-rv><span class="sec-bar"></span><h2>Галерея</h2></div>
+      <div class="news-head" data-rv>
+        <div class="sec-head"><span class="sec-bar"></span><h2>Галерея</h2></div>
+        <a class="all-news" href="/gallery">Усі фото →</a>
+      </div>
       <% if (gallery.length) { %>
         <div class="masonry" id="galleryGrid">
-          <% gallery.forEach(function(g){ %>
+          <% gallery.slice(0, 8).forEach(function(g){ %>
             <figure class="gitem masonry__item" data-rv="clip">
               <img class="gzoom" src="<%= g.path %>" alt="<%= esc(g.caption) || 'Фото з галереї' %>" loading="lazy" />
               <% if (g.caption) { %><figcaption class="gcap"><%= g.caption %></figcaption><% } %>
             </figure>
           <% }); %>
         </div>
+        <% if (gallery.length > 8) { %>
+          <div class="gallery-more" data-rv><a class="btn-g btn-lg" href="/gallery">Переглянути всю галерею →</a></div>
+        <% } %>
       <% } else { %>
         <p class="muted">Фотографії додаються в адмінпанелі.</p>
       <% } %>
@@ -290,6 +296,12 @@
           <div class="contact-block">
             <div class="contact-label">Email</div>
             <%= s.contact_email %>
+          </div>
+          <% } %>
+          <% if (s.contact_email_reception) { %>
+          <div class="contact-block">
+            <div class="contact-label">Email приймальні</div>
+            <%= s.contact_email_reception %>
           </div>
           <% } %>
 

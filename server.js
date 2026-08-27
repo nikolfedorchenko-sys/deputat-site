@@ -136,6 +136,15 @@ app.get('/', (req, res) => {
   res.render('index', { s, news, gallery, achievements });
 });
 
+// Окрема сторінка галереї (усі фото)
+app.get('/gallery', (req, res) => {
+  const s = getAllSettings();
+  const gallery = db
+    .prepare('SELECT id, path, caption FROM gallery ORDER BY sort_order ASC, id ASC')
+    .all();
+  res.render('gallery', { s, gallery });
+});
+
 // Адмінпанель (сторінка) — під захистом
 app.get('/manager', requireAuthPage, (req, res) => {
   res.render('manager/dashboard', { username: req.session.username });

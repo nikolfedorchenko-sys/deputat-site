@@ -205,6 +205,40 @@ if (newsCount === 0) {
   });
 }
 
+// Фотогалерея — тільки якщо таблиця порожня. Файли лежать у public/img/gallery.
+const galleryCount = db.prepare('SELECT COUNT(*) AS c FROM gallery').get().c;
+if (galleryCount === 0) {
+  const gseed = [
+    ['/img/gallery/g01.jpg', 'На засіданні постійної комісії Київради'],
+    ['/img/gallery/g02.jpg', 'Робота з депутатськими зверненнями'],
+    ['/img/gallery/g03.jpg', 'Обстеження об’єктів на окрузі №12'],
+    ['/img/gallery/g04.jpg', 'Зустріч із мешканцями округу'],
+    ['/img/gallery/g05.jpg', 'З громадою округу'],
+    ['/img/gallery/g06.jpg', 'Адресна допомога мешканцям'],
+    ['/img/gallery/g07.jpg', 'Підтримка рятувальних та комунальних служб'],
+    ['/img/gallery/g08.jpg', 'Вручення відзнак'],
+    ['/img/gallery/g09.jpg', 'Передача ударних дронів захисникам'],
+    ['/img/gallery/g10.jpg', 'Допомога полку «Ахіллес»'],
+    ['/img/gallery/g11.jpg', 'Передача техніки підрозділам Сил оборони'],
+    ['/img/gallery/g12.jpg', 'Безпілотні комплекси для фронту'],
+    ['/img/gallery/g13.jpg', 'Передача автомобіля військовим'],
+    ['/img/gallery/g14.jpg', 'Зв’язок та живлення для військових'],
+    ['/img/gallery/g15.jpg', 'Спорядження для підрозділів на передовій'],
+    ['/img/gallery/g16.jpg', 'Гуманітарні вантажі захисникам'],
+    ['/img/gallery/g17.jpg', 'Передача обладнання для екіпажів БпЛА'],
+    ['/img/gallery/g18.jpg', 'Доставка допомоги на передову'],
+    ['/img/gallery/g19.jpg', 'Безпілотники для розвідки та ударів'],
+    ['/img/gallery/g20.jpg', 'Зустріч із військовими'],
+    ['/img/gallery/g21.jpg', 'З військовими на передовій'],
+    ['/img/gallery/g22.jpg', 'Поїздка на Донеччину'],
+    ['/img/gallery/g23.jpg', 'Спільна робота з волонтерами й військовими'],
+    ['/img/gallery/g24.jpg', 'Вшанування пам’яті загиблих'],
+  ];
+  const gins = db.prepare('INSERT INTO gallery (path, caption, sort_order) VALUES (?, ?, ?)');
+  const gtx = db.transaction((rows) => rows.forEach((r, i) => gins.run(r[0], r[1], i + 1)));
+  gtx(gseed);
+}
+
 module.exports = {
   db,
   getSetting,

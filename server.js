@@ -46,8 +46,9 @@ app.locals.nl2br = (str) => escapeHtml(str).replace(/\r?\n/g, '<br>');
 // Абзаци з тексту, розділеного порожнім рядком
 app.locals.paragraphs = (str) =>
   String(str || '')
+    .replace(/\r\n/g, '\n')
     .split(/\n{2,}/)
-    .map((p) => `<p>${escapeHtml(p).replace(/\r?\n/g, '<br>')}</p>`)
+    .map((p) => `<p>${escapeHtml(p).replace(/\n/g, '<br>')}</p>`)
     .join('');
 
 // Регексп маркера фото в тексті новини: [фото1], [ photo 2 ] тощо
@@ -61,7 +62,7 @@ const PHOTO_TOKEN = /^\[\s*(?:фото|photo)\s*(\d+)\s*\]$/i;
 function renderArticleBody(body, images) {
   const imgs = Array.isArray(images) ? images : [];
   const used = new Set();
-  const blocks = String(body || '').split(/\n{2,}/);
+  const blocks = String(body || '').replace(/\r\n/g, '\n').split(/\n{2,}/);
   const html = blocks
     .map((block) => {
       const t = block.trim();

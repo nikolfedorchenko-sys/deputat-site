@@ -197,7 +197,7 @@
     <div class="wrap">
       <div class="sec-head" data-rv><span class="sec-bar"></span><h2>Підтримка Захисників</h2></div>
       <p class="army-intro" data-rv>
-        Протягом 2025 року — системна допомога підрозділам Сил оборони: ударні дрони,
+        Системна допомога підрозділам Сил оборони: ударні дрони,
         засоби радіоелектронної боротьби, Starlink, генератори та автомобілі. Серед
         підрозділів — 92-га окрема штурмова бригада імені Івана Сірка, 429-й полк
         безпілотних систем «Ахіллес», 130-та бригада та інші.
@@ -258,9 +258,9 @@
         <a class="all-news" href="/gallery">Усі фото →</a>
       </div>
       <% if (gallery.length) { %>
-        <div class="masonry" id="galleryGrid">
+        <div class="gallery-preview" id="galleryGrid">
           <% gallery.slice(0, 8).forEach(function(g){ %>
-            <figure class="gitem masonry__item" data-rv="clip">
+            <figure class="gitem gallery-preview__item" data-rv="clip">
               <img class="gzoom" src="<%= g.path %>" alt="<%= esc(g.caption) || 'Фото з галереї' %>" loading="lazy" />
               <% if (g.caption) { %><figcaption class="gcap"><%= g.caption %></figcaption><% } %>
             </figure>
@@ -365,7 +365,6 @@
     <nav class="foot-links" aria-label="Офіційні посилання">
       <% if (s.kyivrada_url) { %><a href="<%= s.kyivrada_url %>" target="_blank" rel="noopener">Профіль на сайті Київради</a><% } %>
       <% if (s.facebook_url) { %><a href="<%= s.facebook_url %>" target="_blank" rel="noopener">Facebook: Юрій Тихонович</a><% } %>
-      <a href="/manager">Адмінпанель</a>
     </nav>
     <div class="foot-copy">© <%= new Date().getFullYear() %>. Усі права захищені.</div>
   </div>

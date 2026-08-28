@@ -206,6 +206,11 @@ a:hover{color:var(--indigo-2)}
 .masonry__item{margin-bottom:20px;break-inside:avoid}
 .masonry__item img{width:100%}
 .gallery-more{text-align:center;margin-top:34px}
+/* Прев'ю галереї на головній — фіксована сітка (резервує місце, без зсуву layout) */
+.gallery-preview{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery-preview__item{aspect-ratio:1/1;border-radius:16px;overflow:hidden;margin:0}
+.gallery-preview__item img{width:100%;height:100%;object-fit:cover}
+@media(max-width:820px){.gallery-preview{grid-template-columns:repeat(2,1fr)}}
 /* Окрема сторінка галереї */
 .gallery-page{padding-top:120px}
 .gallery-page .masonry{columns:4}

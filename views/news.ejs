@@ -59,8 +59,10 @@
       <% } %>
 
       <div class="prose news-article__body"><%- paragraphs(post.body) %></div>
+    </div>
 
-      <% if (post.images && post.images.length) { %>
+    <% if (post.images && post.images.length) { %>
+      <div class="wrap news-article__gallery">
         <h2 class="news-article__gallery-title">Фото</h2>
         <div class="news-article__photos" id="galleryGrid">
           <% post.images.forEach(function(img){ %>
@@ -69,8 +71,10 @@
             </figure>
           <% }); %>
         </div>
-      <% } %>
+      </div>
+    <% } %>
 
+    <div class="wrap wrap--narrow">
       <div class="news-article__foot">
         <a class="btn-g btn-lg" href="/#news">← Повернутися до новин</a>
       </div>

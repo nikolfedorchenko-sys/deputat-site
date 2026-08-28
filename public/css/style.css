@@ -205,12 +205,13 @@ a:hover{color:var(--indigo-2)}
 .news-article__cover img{width:100%;height:auto;display:block}
 .news-article__body{font-size:16.5px;line-height:1.75;color:var(--body)}
 .news-article__body p{margin:0 0 16px}
-.news-article__gallery-title{font-size:20px;font-weight:700;color:var(--ink);margin:34px 0 16px}
-.news-article__photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.news-article__photos .gitem{border-radius:14px;overflow:hidden}
+.news-article__gallery{margin-top:44px}
+.news-article__gallery-title{font-size:22px;font-weight:700;color:var(--ink);margin:0 0 18px}
+.news-article__photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.news-article__photos .gitem{border-radius:16px;overflow:hidden}
 .news-article__photos img{width:100%;aspect-ratio:4/3;object-fit:cover;cursor:zoom-in}
-.news-article__foot{margin-top:36px}
-@media(max-width:640px){.news-article__photos{grid-template-columns:repeat(2,1fr)}}
+.news-article__foot{margin-top:40px}
+@media(max-width:640px){.news-article__photos{grid-template-columns:repeat(2,1fr);gap:10px}}
 
 /* ── Зображення з ефектами (gitem) ── */
 .gitem{position:relative;overflow:hidden;border-radius:18px}

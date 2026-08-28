@@ -136,6 +136,15 @@ app.get('/', (req, res) => {
   res.render('index', { s, news, gallery, achievements });
 });
 
+// Окрема сторінка новини (повний текст + фото)
+app.get('/news/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const post = db.prepare(`SELECT * FROM news WHERE id = ? AND status = 'published'`).get(id);
+  if (!post) return res.status(404).send('Новину не знайдено');
+  post.images = db.prepare('SELECT id, path FROM news_images WHERE news_id = ?').all(id);
+  res.render('news', { s: getAllSettings(), post });
+});
+
 // Окрема сторінка галереї (усі фото)
 app.get('/gallery', (req, res) => {
   const s = getAllSettings();

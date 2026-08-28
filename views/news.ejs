@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= post.title %> — <%= s.hero_name %></title>
+  <meta name="description" content="<%= esc(post.body).slice(0,160) %>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="<%= esc(post.title) %>" />
+  <meta property="og:image" content="<%= post.cover_image || s.og_image %>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div id="pbar"></div>
+
+<nav id="siteNav" class="nav" aria-label="Головна навігація">
+  <a class="nav__brand" href="/" aria-label="На головну">
+    <span class="mono">ЮТ</span>
+    <span class="nav__id">
+      <span class="nav__name"><%= s.hero_name %></span>
+      <span class="nav__role">Депутат Київради · округ №12</span>
+    </span>
+  </a>
+  <div class="nav__links" id="navLinks">
+    <a href="/#about" class="nl">Про депутата</a>
+    <a href="/#activity" class="nl">Діяльність</a>
+    <a href="/#results" class="nl">Досягнення</a>
+    <a href="/#army" class="nl">Захисникам</a>
+    <a href="/#news" class="nl">Новини</a>
+    <a href="/#gallery" class="nl">Галерея</a>
+    <a href="/#contacts" class="nl">Контакти</a>
+  </div>
+  <a href="/#contacts" class="btn-g nav__cta">Звернутися</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <article class="section section--white news-article">
+    <div class="wrap wrap--narrow">
+      <a class="gallery-back" href="/#news">← Усі новини</a>
+      <div class="news-article__meta">
+        <% if (post.tag) { %><span class="tag"><%= post.tag %></span><% } %>
+        <time datetime="<%= post.date %>"><%= post.date.split('-').reverse().join('.') %></time>
+      </div>
+      <h1 class="news-article__title"><%= post.title %></h1>
+
+      <% if (post.cover_image) { %>
+        <figure class="news-article__cover">
+          <img src="<%= post.cover_image %>" alt="<%= esc(post.title) %>" />
+        </figure>
+      <% } %>
+
+      <div class="prose news-article__body"><%- paragraphs(post.body) %></div>
+
+      <% if (post.images && post.images.length) { %>
+        <h2 class="news-article__gallery-title">Фото</h2>
+        <div class="news-article__photos" id="galleryGrid">
+          <% post.images.forEach(function(img){ %>
+            <figure class="gitem">
+              <img class="gzoom" src="<%= img.path %>" alt="Фото до новини" loading="lazy" />
+            </figure>
+          <% }); %>
+        </div>
+      <% } %>
+
+      <div class="news-article__foot">
+        <a class="btn-g btn-lg" href="/#news">← Повернутися до новин</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<div class="foot-line"></div>
+<footer class="footer">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <span class="mono">ЮТ</span>
+      <span class="foot-id"><%= s.hero_name %><br><span>Депутат Київради · округ №12</span></span>
+    </div>
+    <nav class="foot-links" aria-label="Офіційні посилання">
+      <% if (s.kyivrada_url) { %><a href="<%= s.kyivrada_url %>" target="_blank" rel="noopener">Профіль на сайті Київради</a><% } %>
+      <% if (s.facebook_url) { %><a href="<%= s.facebook_url %>" target="_blank" rel="noopener">Facebook: Юрій Тихонович</a><% } %>
+    </nav>
+    <div class="foot-copy">© <%= new Date().getFullYear() %>. Усі права захищені.</div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

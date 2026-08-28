@@ -226,7 +226,7 @@
       </div>
       <div class="cards-3">
         <% news.slice(0, 6).forEach(function(n){ %>
-          <article class="news-card card-t" data-rv="scale" data-tilt>
+          <a href="/news/<%= n.id %>" class="news-card card-t" data-rv="scale" data-tilt>
             <div class="gitem news-card__img">
               <% if (n.cover_image) { %>
                 <img class="gzoom" src="<%= n.cover_image %>" alt="<%= esc(n.title) %>" loading="lazy" />
@@ -241,8 +241,9 @@
               </div>
               <h3 class="news-card__title"><%= n.title %></h3>
               <% if (n.body) { %><p class="news-card__text"><%= n.body.length > 120 ? n.body.slice(0,120) + '…' : n.body %></p><% } %>
+              <span class="news-card__more">Читати повністю →</span>
             </div>
-          </article>
+          </a>
         <% }); %>
         <% if (news.length === 0) { %>
           <p class="muted">Новини з’являться незабаром.</p>

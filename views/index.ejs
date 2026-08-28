@@ -240,7 +240,8 @@
                 <time datetime="<%= n.date %>"><%= n.date.split('-').reverse().join('.') %></time>
               </div>
               <h3 class="news-card__title"><%= n.title %></h3>
-              <% if (n.body) { %><p class="news-card__text"><%= n.body.length > 120 ? n.body.slice(0,120) + '…' : n.body %></p><% } %>
+              <% const teaser = stripPhotoTokens(n.body).replace(/\s+/g, ' ').trim(); %>
+              <% if (teaser) { %><p class="news-card__text"><%= teaser.length > 120 ? teaser.slice(0, 120) + '…' : teaser %></p><% } %>
               <span class="news-card__more">Читати повністю →</span>
             </div>
           </a>

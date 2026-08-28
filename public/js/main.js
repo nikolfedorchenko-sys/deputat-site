@@ -175,10 +175,14 @@
   });
 })();
 
-// ── Лайтбокс галереї ──
+// ── Лайтбокс галереї (та фото в тексті новини) ──
 (function () {
-  const grid = document.getElementById('galleryGrid');
-  if (!grid) return;
+  // Клікабельні зони: галерея та тіло статті (фото, вставлені в текст)
+  const roots = [
+    document.getElementById('galleryGrid'),
+    document.querySelector('.news-article__body'),
+  ].filter(Boolean);
+  if (!roots.length) return;
 
   const box = document.createElement('div');
   box.className = 'lightbox';
@@ -186,13 +190,15 @@
   document.body.appendChild(box);
   const bigImg = box.querySelector('img');
 
-  grid.addEventListener('click', (e) => {
-    const img = e.target.closest('img');
-    if (!img) return;
-    bigImg.src = img.src;
-    bigImg.alt = img.alt;
-    box.classList.add('open');
-  });
+  roots.forEach((root) =>
+    root.addEventListener('click', (e) => {
+      const img = e.target.closest('img');
+      if (!img) return;
+      bigImg.src = img.src;
+      bigImg.alt = img.alt;
+      box.classList.add('open');
+    })
+  );
   function close() { box.classList.remove('open'); bigImg.src = ''; }
   box.addEventListener('click', (e) => {
     if (e.target === box || e.target.classList.contains('lightbox__close')) close();

@@ -103,10 +103,10 @@ async function openNewsForm(id) {
       $('#newsCoverPreview').innerHTML =
         `<figure><img src="${n.cover_image}" alt=""></figure>`;
     }
-    // Існуючі додаткові фото з кнопкою видалення
-    (n.images || []).forEach((img) => {
+    // Існуючі додаткові фото з номером ([фотоN]) і кнопкою видалення
+    (n.images || []).forEach((img, i) => {
       const fig = document.createElement('figure');
-      fig.innerHTML = `<img src="${img.path}" alt=""><button type="button" title="Видалити">×</button>`;
+      fig.innerHTML = `<img src="${img.path}" alt=""><span class="img-num">[фото${i + 1}]</span><button type="button" title="Видалити">×</button>`;
       fig.querySelector('button').addEventListener('click', async () => {
         if (!confirm('Видалити це фото?')) return;
         try { await api('DELETE', `/api/admin/news/${n.id}/images/${img.id}`); fig.remove(); toast('Фото видалено'); }

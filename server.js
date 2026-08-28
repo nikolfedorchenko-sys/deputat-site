@@ -50,6 +50,39 @@ app.locals.paragraphs = (str) =>
     .map((p) => `<p>${escapeHtml(p).replace(/\r?\n/g, '<br>')}</p>`)
     .join('');
 
+// Регексп маркера фото в тексті новини: [фото1], [ photo 2 ] тощо
+const PHOTO_TOKEN = /^\[\s*(?:фото|photo)\s*(\d+)\s*\]$/i;
+
+/**
+ * Рендер тіла новини: абзаци тексту + фото, вставлені маркером [фотоN]
+ * (окремим рядком) у потрібному місці. Повертає { html, leftover } —
+ * leftover — фото, які не вставлені в текст (показуються галереєю внизу).
+ */
+function renderArticleBody(body, images) {
+  const imgs = Array.isArray(images) ? images : [];
+  const used = new Set();
+  const blocks = String(body || '').split(/\n{2,}/);
+  const html = blocks
+    .map((block) => {
+      const t = block.trim();
+      if (!t) return '';
+      const m = t.match(PHOTO_TOKEN);
+      if (m) {
+        const idx = Number(m[1]) - 1;
+        const img = imgs[idx];
+        if (!img) return '';
+        used.add(idx);
+        return `<figure class="news-inline"><img src="${escapeHtml(img.path)}" alt="Фото до новини" loading="lazy"></figure>`;
+      }
+      return `<p>${escapeHtml(t).replace(/\r?\n/g, '<br>')}</p>`;
+    })
+    .join('\n');
+  const leftover = imgs.filter((_, i) => !used.has(i));
+  return { html, leftover };
+}
+app.locals.stripPhotoTokens = (str) =>
+  String(str || '').replace(/\[\s*(?:фото|photo)\s*\d+\s*\]/gi, ' ');
+
 // ── View engine ──────────────────────────────────────────────────────────────
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -142,7 +175,8 @@ app.get('/news/:id', (req, res) => {
   const post = db.prepare(`SELECT * FROM news WHERE id = ? AND status = 'published'`).get(id);
   if (!post) return res.status(404).send('Новину не знайдено');
   post.images = db.prepare('SELECT id, path FROM news_images WHERE news_id = ?').all(id);
-  res.render('news', { s: getAllSettings(), post });
+  const { html, leftover } = renderArticleBody(post.body, post.images);
+  res.render('news', { s: getAllSettings(), post, bodyHtml: html, extraImages: leftover });
 });
 
 // Окрема сторінка галереї (усі фото)

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Звіт про діяльність 2021–2025 — <%= s.hero_name %></title>
+  <meta name="description" content="Звіт про депутатську діяльність Юрія Тихоновича за 2021–2025 роки: матеріальна допомога, ремонти й благоустрій округу №12, вирішені звернення, гуманітарна допомога." />
+  <meta property="og:title" content="Звіт про діяльність 2021–2025 — <%= s.hero_name %>" />
+  <meta property="og:image" content="<%= s.og_image %>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div id="pbar"></div>
+
+<nav id="siteNav" class="nav" aria-label="Головна навігація">
+  <a class="nav__brand" href="/" aria-label="На головну">
+    <span class="mono">ЮТ</span>
+    <span class="nav__id">
+      <span class="nav__name"><%= s.hero_name %></span>
+      <span class="nav__role">Депутат Київради · округ №12</span>
+    </span>
+  </a>
+  <div class="nav__links" id="navLinks">
+    <a href="/#about" class="nl">Про депутата</a>
+    <a href="/#activity" class="nl">Діяльність</a>
+    <a href="/#results" class="nl">Досягнення</a>
+    <a href="/#army" class="nl">Захисникам</a>
+    <a href="/#news" class="nl">Новини</a>
+    <a href="/#gallery" class="nl">Галерея</a>
+    <a href="/#contacts" class="nl">Контакти</a>
+  </div>
+  <a href="/#contacts" class="btn-g nav__cta">Звернутися</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="report">
+  <!-- Заголовок -->
+  <header class="section section--tint report-hero">
+    <div class="wrap">
+      <a class="gallery-back" href="/#results">← На головну</a>
+      <div class="eyebrow"><span class="eyebrow__line"></span>Округ №12 · Солом’янський район</div>
+      <h1 class="gtext report-hero__title">Звіт про діяльність<br>2021–2025</h1>
+      <p class="lead">Що зроблено для мешканців округу за поточне скликання — коротко про головне: адресна допомога, ремонти й благоустрій, вирішені звернення та підтримка людей.</p>
+    </div>
+  </header>
+
+  <!-- Ключові показники -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-bar"></span><h2>Ключові показники</h2></div>
+      <div class="cards-3 report-stats">
+        <div class="stat stat--hl"><div class="gnum stat__num">4009</div><div class="stat__desc">мешканців отримали матеріальну допомогу на <strong>12 667 919 грн</strong></div></div>
+        <div class="stat"><div class="gnum stat__num">571</div><div class="stat__desc">особа отримала допомогу за програмою «Турбота. Назустріч киянам»</div></div>
+        <div class="stat"><div class="gnum stat__num">154</div><div class="stat__desc">участей у робочих і підготовчих групах, комісіях</div></div>
+        <div class="stat"><div class="gnum stat__num">61</div><div class="stat__desc">поданий проєкт рішення Київради</div></div>
+        <div class="stat"><div class="gnum stat__num">78</div><div class="stat__desc">підтриманих рішень (як автор і співавтор)</div></div>
+        <div class="stat"><div class="gnum stat__num">27 т</div><div class="stat__desc">продуктів харчування у складі гуманітарної допомоги</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ремонти та благоустрій -->
+  <section class="section section--tint">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-bar"></span><h2>Ремонти та благоустрій округу</h2></div>
+      <p class="report-note">За Програмою вирішення соціально-економічних проблем та Пропозиціями до Програми економічного і соціального розвитку міста Києва.</p>
+      <ul class="report-list report-list--cols">
+        <li>Капітальний ремонт покрівель — <b>8 житлових будинків</b> і <b>2 заклади освіти</b></li>
+        <li>Реконструкція пасажирських ліфтів — <b>8 будинків</b></li>
+        <li>Капітальний ремонт інженерних мереж — <b>8 будинків</b></li>
+        <li>Капітальний ремонт електромереж та електрощитових — <b>7 будинків</b></li>
+        <li>Капітальний ремонт укриттів у житлових будинках — <b>4 об’єкти</b></li>
+        <li>Заміна вікон — <b>2 житлові будинки</b> і <b>2 заклади освіти</b></li>
+        <li>Ремонт асфальту, прибудинкових територій та проїздів — <b>12 об’єктів</b></li>
+        <li>Спортивний і дитячий ігровий майданчики — <b>2 об’єкти</b></li>
+        <li>Влаштування пандуса — <b>1 об’єкт</b></li>
+        <li>Прилади обліку теплової енергії для будинків і котелень — понад <b>4,8 млн грн</b> (лічильники та обмінний фонд)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Вирішені звернення -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-bar"></span><h2>Вирішені звернення мешканців</h2></div>
+      <ul class="report-list">
+        <li>Запуск 5-го котла на котельні РК «Жуляни» — <b>відновлено опалення ЖК «Медовий»</b> (вул. Кадетський Гай, 8, 10, 12).</li>
+        <li>Відновлено теплопостачання житлового будинку №1 по вул. Миколи Василенка.</li>
+        <li>Збільшено потужність електрозабезпечення будинків №10 і 12 по вул. Кадетський Гай.</li>
+        <li>Забезпечено освітлення у ІІ під’їзді біля сходів в укриття, буд. 9 по вул. М. Брайчевського.</li>
+        <li>Очищення дощової каналізації біля буд. 13 і 13-А (пров. Чугуївський) та споруд по вул. Василенка — припинено підтоплення.</li>
+        <li>Встановлено павільйон зупинки громадського транспорту на вул. О. Теліги («Бабин Яр», у бік метро «Дорогожичі»).</li>
+        <li>Сприяння у встановленні меморіальної дошки загиблому воїну Артему Соханю (вул. Вадима Гетьмана, 25).</li>
+        <li>Благоустрій біля гуртожитку на вул. Брайчевського, 7, і ремонт покриття вздовж пров. Ковальського.</li>
+        <li>Ремонт асфальту проїжджої частини й тротуару вздовж вул. О. Тихого.</li>
+        <li>Відновлено благоустрій прибудинкової території буд. 7-А на вул. Академіка Шалімова та в місцях розриття на вул. Андрія Мельника, 5/1.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- За власний кошт -->
+  <section class="section section--tint">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-bar"></span><h2>За власний кошт</h2></div>
+      <ul class="report-list report-list--cols">
+        <li>Поручні на сходах на вул. О. Тихого, 23–25 та вул. Борщагівській, 143.</li>
+        <li>Облаштування скверу на перетині вул. Кудряшова та П. Красикова.</li>
+        <li>Частковий ремонт покрівлі над під’їздом на вул. Металістів, 13.</li>
+        <li>Косметичний ремонт квартири після протікання покрівлі (Пр-т Повітрофлотський, 43).</li>
+        <li>Обладнання для дитячого гуртка «Радіоелектронне конструювання» (вул. Курська, 15-А).</li>
+        <li>Призи для конкурсу «Інженерінг-Фест» і міських змагань з радіоконструювання.</li>
+        <li>Будматеріали для облаштування бомбосховища СЗШ «Надія».</li>
+        <li>Заміна вікон, електроосвітлення та обладнання для СЗШ «Надія» і СЗШ №74.</li>
+        <li>Ліки та засоби гігієни для міських лікарень (КМКЛ №4, пологовий будинок №5).</li>
+        <li>Дві путівки до дитячих оздоровчих таборів «Молода Гвардія» та «Синевир».</li>
+        <li>Понад <b>770 новорічних подарунків</b> дітям пільгових категорій і дітям захисників.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Гуманітарна допомога -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-bar"></span><h2>Гуманітарна допомога</h2></div>
+      <p class="report-note">Мешканцям Солом’янського району та тимчасово переміщеним особам.</p>
+      <div class="cards-4 report-hum">
+        <div class="hum-item"><span class="hum-num">1700</span>продуктових наборів</div>
+        <div class="hum-item"><span class="hum-num">27 т</span>продуктів харчування</div>
+        <div class="hum-item"><span class="hum-num">1250</span>пасок до Великодня</div>
+        <div class="hum-item"><span class="hum-num">6200</span>засобів особистої гігієни</div>
+        <div class="hum-item"><span class="hum-num">1000 кг</span>медичних засобів</div>
+        <div class="hum-item"><span class="hum-num">1000</span>пачок дитячого харчування</div>
+        <div class="hum-item"><span class="hum-num">2000</span>памперсів і засобів гігієни</div>
+        <div class="hum-item"><span class="hum-num">376</span>новорічних наборів для СЗШ «Надія»</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap report-cta">
+      <p>Маєте звернення чи потребуєте допомоги?</p>
+      <a class="btn-g btn-lg" href="/#contacts">Звернутися до депутата</a>
+    </div>
+  </section>
+</main>
+
+<div class="foot-line"></div>
+<footer class="footer">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <span class="mono">ЮТ</span>
+      <span class="foot-id"><%= s.hero_name %><br><span>Депутат Київради · округ №12</span></span>
+    </div>
+    <nav class="foot-links" aria-label="Офіційні посилання">
+      <% if (s.kyivrada_url) { %><a href="<%= s.kyivrada_url %>" target="_blank" rel="noopener">Профіль на сайті Київради</a><% } %>
+      <% if (s.facebook_url) { %><a href="<%= s.facebook_url %>" target="_blank" rel="noopener">Facebook: Юрій Тихонович</a><% } %>
+    </nav>
+    <div class="foot-copy">© <%= new Date().getFullYear() %>. Усі права захищені.</div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

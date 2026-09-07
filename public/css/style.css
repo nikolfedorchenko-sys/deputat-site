@@ -215,6 +215,25 @@ a:hover{color:var(--indigo-2)}
 .news-article__foot{margin-top:40px}
 @media(max-width:640px){.news-article__photos{grid-template-columns:repeat(2,1fr);gap:10px}}
 
+/* ── Сторінка звіту 2021–2025 ── */
+.report-hero{padding-top:120px}
+.report-hero__title{font-size:clamp(32px,5vw,52px);line-height:1.08;font-weight:800;margin:14px 0 18px}
+.report-stats{margin-top:4px}
+.report-stats .stat__desc strong{color:var(--ink)}
+.report-note{color:var(--muted);margin:0 0 22px;max-width:78ch;line-height:1.6}
+.report-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.report-list--cols{grid-template-columns:1fr 1fr;gap:12px 34px}
+.report-list li{position:relative;padding-left:30px;line-height:1.55;color:var(--body);font-size:15.5px}
+.report-list li::before{content:'';position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--grad-line)}
+.report-list li::after{content:'✓';position:absolute;left:3px;top:4px;font-size:11px;font-weight:800;color:#fff}
+.report-list b{color:var(--ink)}
+.report-hum{gap:16px}
+.hum-item{background:#fff;border:1px solid var(--line-2);border-radius:16px;padding:22px 18px;text-align:center;font-size:13.5px;line-height:1.4;color:var(--muted)}
+.hum-num{display:block;font-size:30px;font-weight:800;line-height:1;margin-bottom:8px;background:var(--grad-line);-webkit-background-clip:text;background-clip:text;color:transparent}
+.report-cta{text-align:center}
+.report-cta p{font-size:18px;font-weight:600;color:var(--ink);margin:0 0 18px}
+@media(max-width:720px){.report-list--cols{grid-template-columns:1fr}}
+
 /* ── Зображення з ефектами (gitem) ── */
 .gitem{position:relative;overflow:hidden;border-radius:18px}
 .gzoom{transition:transform .6s var(--ease)}

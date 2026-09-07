@@ -180,6 +180,11 @@ app.get('/news/:id', (req, res) => {
   res.render('news', { s: getAllSettings(), post, bodyHtml: html, extraImages: leftover });
 });
 
+// Окрема сторінка звіту про діяльність 2021–2025
+app.get('/report', (req, res) => {
+  res.render('report', { s: getAllSettings() });
+});
+
 // Окрема сторінка галереї (усі фото)
 app.get('/gallery', (req, res) => {
   const s = getAllSettings();

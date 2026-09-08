@@ -178,10 +178,9 @@
 // ── Лайтбокс галереї (та фото в тексті новини) ──
 (function () {
   // Клікабельні зони: галерея та тіло статті (фото, вставлені в текст)
-  const roots = [
-    document.getElementById('galleryGrid'),
-    document.querySelector('.news-article__body'),
-  ].filter(Boolean);
+  const roots = Array.from(
+    document.querySelectorAll('#galleryGrid, .news-article__body, .report-photos')
+  );
   if (!roots.length) return;
 
   const box = document.createElement('div');

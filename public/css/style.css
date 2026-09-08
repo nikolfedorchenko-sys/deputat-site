@@ -232,6 +232,11 @@ a:hover{color:var(--indigo-2)}
 .hum-num{display:block;font-size:30px;font-weight:800;line-height:1;margin-bottom:8px;background:var(--grad-line);-webkit-background-clip:text;background-clip:text;color:transparent}
 .report-cta{text-align:center}
 .report-cta p{font-size:18px;font-weight:600;color:var(--ink);margin:0 0 18px}
+.report-photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:24px}
+.report-photos figure{margin:0;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.report-photos img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;cursor:zoom-in;transition:transform .5s var(--ease)}
+.report-photos figure:hover img{transform:scale(1.05)}
+@media(max-width:560px){.report-photos{grid-template-columns:1fr 1fr;gap:10px}}
 @media(max-width:720px){.report-list--cols{grid-template-columns:1fr}}
 
 /* ── Зображення з ефектами (gitem) ── */

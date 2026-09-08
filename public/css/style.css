@@ -176,13 +176,14 @@ a:hover{color:var(--indigo-2)}
 .army-month{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--indigo-2);background:rgba(99,91,255,.1);padding:4px 12px;border-radius:999px;margin-bottom:12px}
 .army-card p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink)}
 .army-highlights{list-style:none;margin:24px 0 4px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.army-highlights li{display:flex;flex-direction:column;gap:4px;background:var(--bg);border:1px solid var(--line-2);border-left:3px solid var(--cyan);border-radius:14px;padding:16px 18px}
-.army-highlights b{font-size:19px;font-weight:800;color:var(--ink)}
+.army-highlights li{display:flex;flex-direction:column;gap:4px;background:var(--bg);border:1px solid var(--line-2);border-left:3px solid var(--cyan);border-radius:14px;padding:16px 18px;transition:transform .25s var(--ease),box-shadow .25s}
+.army-highlights li:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(10,11,18,.08)}
+.army-highlights b{font-size:19px;font-weight:800;line-height:1.1;background:var(--grad-line);-webkit-background-clip:text;background-clip:text;color:transparent}
 .army-highlights span{font-size:13.5px;color:var(--muted)}
 .army-photos{margin-top:20px}
 @media(max-width:1024px){.army-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.army-highlights{grid-template-columns:1fr}}
-@media(max-width:560px){.army-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.army-highlights{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.army-grid{grid-template-columns:1fr}.army-highlights{grid-template-columns:1fr}}
 
 /* ── Новини ── */
 .news-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:48px;flex-wrap:wrap}

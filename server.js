@@ -185,6 +185,11 @@ app.get('/report', (req, res) => {
   res.render('report', { s: getAllSettings() });
 });
 
+// Окрема сторінка «Підтримка Захисників» (хронологія 2022–2025)
+app.get('/army', (req, res) => {
+  res.render('army', { s: getAllSettings() });
+});
+
 // Окрема сторінка галереї (усі фото)
 app.get('/gallery', (req, res) => {
   const s = getAllSettings();

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Підтримка Захисників 2022–2025 — <%= s.hero_name %></title>
+  <meta name="description" content="Хронологія допомоги Силам оборони від Юрія Тихоновича у 2022–2025 роках: дрони, РЕБ, автомобілі, генератори, спорядження для бригад ТрО, ЗСУ, ГУР та СБУ." />
+  <meta property="og:title" content="Підтримка Захисників 2022–2025 — <%= s.hero_name %>" />
+  <meta property="og:image" content="<%= s.og_image %>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div id="pbar"></div>
+
+<nav id="siteNav" class="nav" aria-label="Головна навігація">
+  <a class="nav__brand" href="/" aria-label="На головну">
+    <span class="mono">ЮТ</span>
+    <span class="nav__id">
+      <span class="nav__name"><%= s.hero_name %></span>
+      <span class="nav__role">Депутат Київради · округ №12</span>
+    </span>
+  </a>
+  <div class="nav__links" id="navLinks">
+    <a href="/#about" class="nl">Про депутата</a>
+    <a href="/#activity" class="nl">Діяльність</a>
+    <a href="/#results" class="nl">Досягнення</a>
+    <a href="/#army" class="nl">Захисникам</a>
+    <a href="/#news" class="nl">Новини</a>
+    <a href="/#gallery" class="nl">Галерея</a>
+    <a href="/#contacts" class="nl">Контакти</a>
+  </div>
+  <a href="/#contacts" class="btn-g nav__cta">Звернутися</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="report">
+  <header class="section section--tint report-hero">
+    <div class="wrap">
+      <a class="gallery-back" href="/#army">← На головну</a>
+      <div class="eyebrow"><span class="eyebrow__line"></span>2022 — 2025</div>
+      <h1 class="gtext report-hero__title">Підтримка Захисників</h1>
+      <p class="lead">Від перших днів повномасштабного вторгнення — системна допомога Силам оборони: ударні та розвідувальні дрони, засоби РЕБ, автомобілі, генератори, спорядження й гуманітарка. Нижче — хронологія за роками (за офіційними звітами депутата).</p>
+    </div>
+  </header>
+
+  <!-- 2022 -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-bar"></span><h2>2022 — оборона Києва й перші поставки</h2></div>
+      <p class="report-note">З 17 березня 2022 року — у складі добровольчого формування ТрО Києва №18 «Молот». Три гуманітарні поїздки на фронт (Харківщина).</p>
+      <ul class="report-list report-list--cols">
+        <li><b>Транспорт:</b> автомобілі Mercedes Vito, Peugeot і вантажний (спільно з КНУБА) — для ТрО та ЗСУ.</li>
+        <li><b>Дрони й оптика:</b> 5 квадрокоптерів DJI Mavic 3; 8 тепловізійних і снайперських прицілів (Pulsar Trail, Zeiss).</li>
+        <li><b>Спорядження:</b> 4 генератори, 50 бронежилетів, 100 касок, 20 тактичних шоломів, 50 біноклів, 10 міношукачів, 50 перископів, 12 польових печей, планшети, повербанки, бензопили.</li>
+        <li><b>Медицина й побут:</b> аптечки та ліки, 300 турнікетів, 50 маскувальних сіток, спальники, 8000 засобів гігієни, паливо.</li>
+        <li><b>Продовольство:</b> 30 тонн продуктів і 7 тонн хліба — киянам і бійцям під час боїв за Київ.</li>
+        <li><b>Відзнаки:</b> подяки від 241-ї бригади ТрО, 130-го та 204-го батальйонів ТрО, ДФ «Молот», військової частини А7373.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2023 -->
+  <section class="section section--tint">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-bar"></span><h2>2023 — дрони, РЕБ і техніка на фронт</h2></div>
+      <ul class="report-list report-list--cols">
+        <li><b>Ударні FPV-дрони-камікадзе</b> — кількома партіями (зокрема 40 шт; 20 шт для 92-ї бригади; 10 шт із РЕБ «Купол»; для спецпідрозділу «Котики» 130-го об-ТрО; для 128-го батальйону) з наземними станціями керування.</li>
+        <li><b>Розвідувальні дрони:</b> DJI Mavic 3T (тепловізійні) для 204-го об-ТрО (напрямок Бахмута), DJI Mavic 3E.</li>
+        <li><b>Ударний безпілотник «Vampire»</b> з тепловізором.</li>
+        <li><b>Автомобілі</b> (повнопривідні) — 112-й окремій бригаді ТрО, 243-му об-ТрО, 128-му батальйону.</li>
+        <li><b>Зв’язок і живлення:</b> Starlink, LED-освітлення.</li>
+        <li><b>Медицина:</b> допомога пораненим у міській лікарні; термоковдри, ліки, напої — 204-му батальйону.</li>
+        <li><b>Мобільний лазне-пральний комплекс (МЛПК)</b> для сил ТрО: генератор, баки для води, пральні та сушильні машини.</li>
+        <li><b>Маскувальні сітки</b> — зокрема 243-й мінометній батареї.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2024 -->
+  <section class="section section--white">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-bar"></span><h2>2024 — 24 виїзди на фронт</h2></div>
+      <ul class="report-list report-list--cols">
+        <li><b>Автотранспорт:</b> автомобіль і швидка для Головного військового клінічного госпіталю; ГАЗ-66 для 204-го батальйону; авто для 92-ї ОШБр (Харківщина) та інших підрозділів.</li>
+        <li><b>Інженерна техніка:</b> екскаватор-навантажувач JCB 3CX для фортифікаційних споруд.</li>
+        <li><b>Ударні дрони:</b> партії FPV-камікадзе (50 шт та інші) з акумуляторами 8000 mAh.</li>
+        <li><b>Розвідувальні дрони:</b> DJI Mavic 3E / 3 PRO (204-й ОБТрО), DJI Matrice 30 (128-й батальйон), потужний DJI Matrice 350 RTK з тепловізором (ЦСО «А» СБУ), комплекси БпЛА (117-та бригада), «Vampire» (130-й батальйон).</li>
+        <li><b>РЕБ:</b> 4-діапазонні станції «Купол» та інші — східний фронт, взвод снайперів, 44-й стрілецький батальйон (з ретранслятором і монітором FPV), «Ахіллес» 92-ї ОШБр.</li>
+        <li><b>Забезпечення операторів:</b> ноутбуки й зарядні станції (117-та бригада), телевізори для штабів/аеророзвідки, окопні свічки та грілки (116-та бригада).</li>
+      </ul>
+      <p class="report-note">Підрозділи, яким передавалася допомога у 2024-му: 23-й, 44-й, 92-й, 101-й, 116-й, 117-й, 128-й, 130-й, 204-й та ЦСО «А» СБУ.</p>
+    </div>
+  </section>
+
+  <!-- 2025 -->
+  <section class="section section--tint">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-bar"></span><h2>2025 — щомісячні поставки</h2></div>
+      <ul class="report-list report-list--cols">
+        <li><b>Січень:</b> FPV-дрони та Mavic 3 Pro.</li>
+        <li><b>Лютий:</b> засоби РЕБ, планшети, EcoFlow; ударні FPV-дрони.</li>
+        <li><b>Березень:</b> дрони та РЕБ для 92-ї ОШБр ім. Івана Сірка; EcoFlow і планшети.</li>
+        <li><b>Квітень:</b> Mavic 3T, дрони на оптоволокні та планшети для 92-ї бригади.</li>
+        <li><b>Травень:</b> Starlink для 429-го полку безпілотних систем «Ахіллес».</li>
+        <li><b>Червень:</b> антитепловізійні костюми для підрозділу снайперів.</li>
+        <li><b>Липень:</b> повнопривідний автомобіль для 92-ї ОШБр ім. Івана Сірка.</li>
+        <li><b>Серпень:</b> авто-Starlink для «Ахіллеса»; щогли й генератор для 241-ї бригади ТрО.</li>
+        <li><b>Грудень:</b> автомобіль для підрозділу розвідки.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="wrap report-cta">
+      <p>Долучитися до підтримки або звернутися до депутата</p>
+      <a class="btn-g btn-lg" href="/#contacts">Звернутися</a>
+    </div>
+  </section>
+</main>
+
+<div class="foot-line"></div>
+<footer class="footer">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <span class="mono">ЮТ</span>
+      <span class="foot-id"><%= s.hero_name %><br><span>Депутат Київради · округ №12</span></span>
+    </div>
+    <nav class="foot-links" aria-label="Офіційні посилання">
+      <% if (s.kyivrada_url) { %><a href="<%= s.kyivrada_url %>" target="_blank" rel="noopener">Профіль на сайті Київради</a><% } %>
+      <% if (s.facebook_url) { %><a href="<%= s.facebook_url %>" target="_blank" rel="noopener">Facebook: Юрій Тихонович</a><% } %>
+    </nav>
+    <div class="foot-copy">© <%= new Date().getFullYear() %>. Усі права захищені.</div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

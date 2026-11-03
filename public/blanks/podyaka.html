@@ -64,16 +64,19 @@
   .title{margin-top:15mm;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:60pt;line-height:1;letter-spacing:.2em;color:var(--navy);padding-left:.2em}
   .title-sub{margin-top:3.5mm;width:62mm;height:6mm}
 
-  .lead{margin-top:11mm;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:15pt;color:var(--muted)}
+  .lead{margin-top:10mm;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:15pt;color:var(--muted)}
 
   .field{width:100%;min-height:10.5mm;border-bottom:.6pt solid #B9B2A3;font-family:'Cormorant Garamond',serif;font-size:19pt;font-weight:600;color:var(--navy);line-height:10.5mm;outline:none}
   .recipient{margin-top:4mm}
   .recipient + .field{margin-top:0}
   .hint{margin-top:1.2mm;font-size:6.6pt;letter-spacing:.16em;color:#9A9384;text-transform:uppercase}
 
-  .body{margin-top:9mm;width:100%;flex:1;font-family:'Cormorant Garamond',serif;font-size:15pt;line-height:10.5mm;color:var(--ink);outline:none;
-    background-image:linear-gradient(to bottom,transparent calc(10.5mm - .6pt),#D3CCBD calc(10.5mm - .6pt),#D3CCBD 10.5mm);
-    background-size:100% 10.5mm;max-height:73.5mm;overflow:hidden}
+  .body{margin-top:12mm;width:100%;flex:1;display:flex;flex-direction:column;align-items:center}
+  .body p{margin:0;max-width:150mm;font-family:'Cormorant Garamond',serif;font-size:17pt;line-height:1.5;color:var(--ink)}
+  .body p + p{margin-top:5mm}
+  .body .accent{font-weight:600;color:var(--navy)}
+  .body .wish{font-style:italic;font-size:15pt;color:var(--muted)}
+  .glory{margin-top:7mm;font-family:'Montserrat',sans-serif;font-weight:600;font-size:8.6pt;letter-spacing:.34em;color:var(--gold);text-transform:uppercase;padding-left:.34em}
 
   .footer{width:100%;display:flex;justify-content:space-between;align-items:flex-end;margin-top:8mm;text-align:left}
   .sign-role{font-size:8.4pt;line-height:1.55;color:var(--ink)}
@@ -160,7 +163,12 @@
     <div class="field" contenteditable="true" spellcheck="false"></div>
     <div class="hint">кому</div>
 
-    <div class="body" contenteditable="true" spellcheck="false" data-ph="за ..."></div>
+    <div class="body">
+      <p class="accent">за сумлінне виконання громадянського обов'язку та&nbsp;постійну підтримку Сил оборони України.</p>
+      <p>Ваша щоденна волонтерська праця, небайдужість і&nbsp;щедрість серця допомагають нашим захисникам і&nbsp;захисницям вистояти та&nbsp;наближають нашу спільну Перемогу.</p>
+      <p class="wish">Бажаю міцного здоров'я, сил, натхнення та&nbsp;миру!</p>
+      <div class="glory">Слава Україні!</div>
+    </div>
 
     <div class="footer">
       <div class="sign-role">Депутат<br><b>Київської міської ради</b></div>

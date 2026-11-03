@@ -68,6 +68,10 @@
   .field{width:100%;min-height:10.5mm;border-bottom:.6pt solid #B9B2A3;font-family:'Cormorant Garamond',serif;font-size:19pt;font-weight:600;color:var(--navy);line-height:10.5mm;outline:none}
   .recipient{margin-top:4mm}
   .recipient + .field{margin-top:0}
+  /* режим «з іменем»: отримувач надрукований, без ліній */
+  .sheet.filled .recipient{border-bottom:none;margin-top:6mm;min-height:0;font-size:24pt;line-height:1.25}
+  .sheet.filled .recipient + .field,.sheet.filled .hint{display:none}
+  .sheet.filled .body{margin-top:12mm}
   .hint{margin-top:1.2mm;font-size:6.6pt;letter-spacing:.16em;color:#9A9384;text-transform:uppercase}
 
   .body{margin-top:12mm;width:100%;flex:1;display:flex;flex-direction:column;align-items:center}

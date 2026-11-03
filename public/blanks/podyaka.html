@@ -46,7 +46,7 @@
   .c-br{bottom:6.5mm;right:6.5mm;transform:scale(-1,-1)}
 
   /* Водяний знак */
-  .watermark{position:absolute;left:50%;top:60%;width:96mm;transform:translate(-50%,-50%);opacity:.03;filter:grayscale(1);pointer-events:none}
+  .watermark{position:absolute;left:50%;top:60%;width:96mm;transform:translate(-50%,-50%);opacity:.09;filter:grayscale(1) contrast(1.1);pointer-events:none}
 
   .content{position:absolute;inset:20mm 22mm 19mm;display:flex;flex-direction:column;align-items:center;text-align:center}
 
@@ -56,7 +56,7 @@
 
   .rule{display:flex;align-items:center;gap:3mm;width:100%;margin:6mm 0 5.2mm}
   .rule span{flex:1;height:.5pt;background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold) 70%,transparent)}
-  .rule svg{width:7mm;height:7mm;flex:none}
+  .rule svg{width:6mm;height:6mm;flex:none}
 
   .position{font-size:8.4pt;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;padding-left:.2em}
   .name{margin-top:2.2mm;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:17pt;letter-spacing:.06em;color:var(--navy)}
@@ -76,16 +76,12 @@
   .body p + p{margin-top:5mm}
   .body .accent{font-weight:600;color:var(--navy)}
   .body .wish{font-style:italic;font-size:15pt;color:var(--muted)}
-  .glory{margin-top:7mm;font-family:'Montserrat',sans-serif;font-weight:600;font-size:8.6pt;letter-spacing:.34em;color:var(--gold);text-transform:uppercase;padding-left:.34em}
 
   .footer{width:100%;display:flex;justify-content:space-between;align-items:flex-end;margin-top:8mm;text-align:left}
   .sign-role{font-size:8.4pt;line-height:1.55;color:var(--ink)}
   .sign-role b{font-weight:600}
   .sign-line{display:flex;align-items:flex-end;gap:5mm}
-  .sign-line .line{width:38mm;border-bottom:.6pt solid var(--ink);height:9mm}
   .sign-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:14pt;color:var(--navy);white-space:nowrap}
-  .meta{width:100%;display:flex;justify-content:space-between;margin-top:7mm;font-size:8pt;color:var(--muted);letter-spacing:.04em}
-  .meta .ls{letter-spacing:.24em;text-transform:uppercase;font-size:7pt}
 
   [contenteditable]:empty::before{content:attr(data-ph);color:#C2BBAB;font-style:italic;font-weight:500}
   @media print{[contenteditable]:empty::before{content:""}}
@@ -134,15 +130,16 @@
     <div class="convocation">IX скликання</div>
 
     <div class="rule"><span></span>
-      <!-- лист каштана -->
-      <svg viewBox="-20 -20 40 40" aria-hidden="true"><g fill="#B08D4C">
-        <ellipse cx="0" cy="-9" rx="3.2" ry="9"/>
-        <ellipse cx="0" cy="-9" rx="2.8" ry="8" transform="rotate(-44)"/>
-        <ellipse cx="0" cy="-9" rx="2.8" ry="8" transform="rotate(44)"/>
-        <ellipse cx="0" cy="-8" rx="2.3" ry="6.6" transform="rotate(-88)"/>
-        <ellipse cx="0" cy="-8" rx="2.3" ry="6.6" transform="rotate(88)"/>
-        <rect x="-.6" y="0" width="1.2" height="10" rx=".6"/>
-      </g></svg>
+      <!-- каштан -->
+      <svg viewBox="-20 -20 40 40" aria-hidden="true">
+        <defs><clipPath id="nut"><path d="M0 -14 C4 -14 7 -12 9.5 -8.5 C13.5 -3 14.5 3.5 12.5 8.5 C10.5 12.5 6 14.5 0 14.5 C-6 14.5 -10.5 12.5 -12.5 8.5 C-14.5 3.5 -13.5 -3 -9.5 -8.5 C-7 -12 -4 -14 0 -14 Z"/></clipPath></defs>
+        <g clip-path="url(#nut)">
+          <rect x="-20" y="-20" width="40" height="40" fill="#B08D4C"/>
+          <ellipse cx="0" cy="11" rx="11" ry="5.2" fill="#E6D3A3"/>
+        </g>
+        <path d="M-1.2 -13.6 L0 -17 L1.2 -13.6 Z" fill="#B08D4C"/>
+        <path d="M-8 -5 C-6.5 -9 -3.5 -11.5 0 -11.8" fill="none" stroke="#E6D3A3" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
     <span></span></div>
 
     <div class="position">Депутат Київської міської ради</div>
@@ -167,18 +164,13 @@
       <p class="accent">за сумлінне виконання громадянського обов'язку та&nbsp;постійну підтримку Сил оборони України.</p>
       <p>Ваша щоденна волонтерська праця, небайдужість і&nbsp;щедрість серця допомагають нашим захисникам і&nbsp;захисницям вистояти та&nbsp;наближають нашу спільну Перемогу.</p>
       <p class="wish">Бажаю міцного здоров'я, сил, натхнення та&nbsp;миру!</p>
-      <div class="glory">Слава Україні!</div>
     </div>
 
     <div class="footer">
       <div class="sign-role">Депутат<br><b>Київської міської ради</b></div>
-      <div class="sign-line"><div class="line"></div><div class="sign-name">Юрій ТИХОНОВИЧ</div></div>
+      <div class="sign-line"><div class="sign-name">Юрій ТИХОНОВИЧ</div></div>
     </div>
 
-    <div class="meta">
-      <span>«____» ______________ 20____ р.</span>
-      <span class="ls">м. Київ</span>
-    </div>
   </div>
 </div>
 

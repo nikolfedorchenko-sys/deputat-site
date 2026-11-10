@@ -43,7 +43,7 @@ else
   git clone "$REPO" "$APP_DIR"
 fi
 cd "$APP_DIR"
-npm ci --omit=dev
+npm install --omit=dev   # package-lock.json у репозиторії немає, тож npm ci не підходить
 
 echo "==> [4/7] .env (секрети)"
 if [ ! -f "$APP_DIR/.env" ]; then

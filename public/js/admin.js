@@ -24,8 +24,38 @@ async function api(method, url, body) {
   if (!res.ok) throw new Error(json.error || 'Помилка запиту');
   return json;
 }
+// Стиснення фото в браузері перед відправкою: макс. 1600px, JPEG ~82%.
+// (Раніше це робив сервер через sharp; на Cloudflare сервера немає.)
+async function compressImage(file) {
+  if (!file.type || !/^image\/(jpeg|png|webp)$/.test(file.type)) return file; // GIF та інше — як є
+  try {
+    const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' });
+    const scale = Math.min(1, 1600 / Math.max(bmp.width, bmp.height));
+    const w = Math.round(bmp.width * scale), h = Math.round(bmp.height * scale);
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); // прозорість PNG → білий фон
+    ctx.drawImage(bmp, 0, 0, w, h);
+    const blob = await new Promise((r) => canvas.toBlob(r, 'image/jpeg', 0.82));
+    if (!blob || (blob.size >= file.size && scale === 1 && file.type === 'image/jpeg')) return file;
+    return new File([blob], file.name.replace(/\.\w+$/, '') + '.jpg', { type: 'image/jpeg' });
+  } catch (_) {
+    return file;
+  }
+}
 // Запит із файлами (FormData)
 async function apiForm(method, url, formData) {
+  const prepared = new FormData();
+  for (const [key, value] of formData.entries()) {
+    if (value instanceof File) {
+      if (value.size === 0 && !value.name) continue; // порожнє поле файлу
+      prepared.append(key, await compressImage(value));
+    } else {
+      prepared.append(key, value);
+    }
+  }
+  formData = prepared;
   const res = await fetch(url, { method, body: formData });
   if (res.status === 401) { location.href = '/manager/login'; throw new Error('401'); }
   const json = await res.json().catch(() => ({}));

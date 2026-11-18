@@ -4,8 +4,17 @@
 `deputat-site` — односторінковий сайт-лендінг депутата Київради **Тихоновича Юрія
 Станіславовича** + адмінка контенту `/manager`. Дизайн — hi-fi індиго/ціан (e-Ukraine).
 
-## Де що
-- **Живий сайт:** https://deputat-site.onrender.com (адмінка — `/manager`)
+## Де що (з листопада 2026 — Cloudflare)
+- **Хостинг:** Cloudflare Workers (безкоштовний план, картка не потрібна → сайт не видалять за несплату).
+  Воркер `deputat-site`, код — `cf/worker.js`, конфіг — `wrangler.jsonc`.
+  Дані — D1 `deputat_site`, завантажені фото — KV `deputat-site-uploads` (віддаються як `/uploads/...`).
+  Деплой автоматичний: Cloudflare Workers Builds підключено до GitHub-репозиторію.
+- **Шаблони:** `views/*.ejs` компілюються в `cf/templates.js` (`node scripts/build-templates.mjs`,
+  виконується автоматично при деплої; у Workers не можна eval, тому EJS компілюється заздалегідь).
+- **Адмінка:** `/manager`; логін і PBKDF2-хеш пароля лежать у таблиці `auth` у D1 (не в .env).
+- Попередні хостинги: Render (`deputat-site.onrender.com`) і DigitalOcean VPS (видалений за несплату).
+  Express-версія (`server.js`, `deploy/setup.sh`) лишається як запасний варіант для VPS.
+- **Старий запис:** https://deputat-site.onrender.com (адмінка — `/manager`)
 - **Репозиторій:** https://github.com/nikolfedorchenko-sys/deputat-site (гілка `main`)
 - **Хостинг:** Render (free), blueprint `render.yaml`, автодеплой при кожному `git push` у `main`.
   Node зафіксовано на **22** (`.nvmrc` + `engines` + `NODE_VERSION`). Сесії — `better-sqlite3-session-store`.

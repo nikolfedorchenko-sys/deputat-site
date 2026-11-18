@@ -1,0 +1,17 @@
+// Cloudflare Workers: сайт депутата (див. cf/worker.js).
+// Деплой автоматичний: Cloudflare → Workers Builds підключено до цього репозиторію.
+{
+  "name": "deputat-site",
+  "main": "cf/worker.js",
+  "compatibility_date": "2025-09-01",
+  "build": { "command": "node scripts/build-templates.mjs" },
+  // Статика з public/ віддається Cloudflare напряму, решту запитів обробляє воркер
+  "assets": { "directory": "./public" },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "deputat_site", "database_id": "581e9fda-58b5-4908-a0eb-eba301acd4e0" }
+  ],
+  "kv_namespaces": [
+    { "binding": "UPLOADS", "id": "45ab2b438c7d4849b39064013d4b0039" }
+  ],
+  "observability": { "enabled": true }
+}

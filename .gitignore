@@ -12,3 +12,6 @@ db/sessions.sqlite-*
 # але саму папку зберігаємо через .gitkeep
 uploads/*
 !uploads/.gitkeep
+
+# Локальні дані wrangler dev
+.wrangler/

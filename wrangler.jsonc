@@ -7,11 +7,13 @@
   "build": { "command": "node scripts/build-templates.mjs" },
   // Статика з public/ віддається Cloudflare напряму, решту запитів обробляє воркер
   "assets": { "directory": "./public" },
+  // Без id: при першому деплої wrangler сам створює базу D1 і сховище KV в акаунті,
+  // а далі використовує вже прив'язані. Таблиці й стартовий контент воркер створює сам.
   "d1_databases": [
-    { "binding": "DB", "database_name": "deputat_site", "database_id": "581e9fda-58b5-4908-a0eb-eba301acd4e0" }
+    { "binding": "DB", "database_name": "deputat_site" }
   ],
   "kv_namespaces": [
-    { "binding": "UPLOADS", "id": "45ab2b438c7d4849b39064013d4b0039" }
+    { "binding": "UPLOADS" }
   ],
   "observability": { "enabled": true }
 }

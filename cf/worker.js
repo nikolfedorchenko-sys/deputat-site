@@ -10,6 +10,7 @@
  *  - адмінка /manager: логін/хеш пароля і секрет сесій лежать у таблиці auth (D1).
  */
 import { templates } from './templates.js';
+import { SCHEMA, SEED, ADMIN_USERNAME, ADMIN_PASSWORD_HASH } from './seed.js';
 
 // ───────────────────────────── Хелпери шаблонів ─────────────────────────────
 function escapeHtml(str) {
@@ -462,6 +463,26 @@ async function adminApi(request, env, path) {
   return json({ error: 'Не знайдено' }, 404);
 }
 
+// ───────────────────────────── Ініціалізація БД ─────────────────────────────
+// При першому запуску (порожня D1) створюємо таблиці, стартовий контент,
+// логін адміна і випадковий секрет сесій. Повторно — лише дешева перевірка.
+let dbReady = null;
+async function ensureDb(db) {
+  const has = await db.prepare("SELECT value FROM auth WHERE key = 'session_secret'").first().catch(() => null);
+  if (has) return;
+  await db.batch(SCHEMA.map((sql) => db.prepare(sql)));
+  const empty = !(await db.prepare('SELECT 1 FROM settings LIMIT 1').first());
+  const stmts = [];
+  if (empty) for (const [sql, params] of SEED) stmts.push(db.prepare(sql).bind(...params));
+  const secret = b64url(crypto.getRandomValues(new Uint8Array(48)));
+  stmts.push(
+    db.prepare('INSERT OR IGNORE INTO auth (key, value) VALUES (?, ?)').bind('admin_username', ADMIN_USERNAME),
+    db.prepare('INSERT OR IGNORE INTO auth (key, value) VALUES (?, ?)').bind('admin_password_hash', ADMIN_PASSWORD_HASH),
+    db.prepare('INSERT OR IGNORE INTO auth (key, value) VALUES (?, ?)').bind('session_secret', secret),
+  );
+  await db.batch(stmts);
+}
+
 // ───────────────────────────── Головний обробник ────────────────────────────
 async function handle(request, env) {
   const url = new URL(request.url);
@@ -553,6 +574,8 @@ async function handle(request, env) {
 export default {
   async fetch(request, env) {
     try {
+      if (!dbReady) dbReady = ensureDb(env.DB).catch((e) => { dbReady = null; throw e; });
+      await dbReady;
       return await handle(request, env);
     } catch (err) {
       if (err instanceof HttpError) return json({ error: err.message }, err.status);

@@ -11,7 +11,7 @@
   Деплой автоматичний: Cloudflare Workers Builds підключено до GitHub-репозиторію.
 - **Шаблони:** `views/*.ejs` компілюються в `cf/templates.js` (`node scripts/build-templates.mjs`,
   виконується автоматично при деплої; у Workers не можна eval, тому EJS компілюється заздалегідь).
-- **Адмінка:** `/manager`; логін і PBKDF2-хеш пароля лежать у таблиці `auth` у D1 (не в .env).
+- **Адмінка:** `/manager`; логін і PBKDF2-хеш пароля — у `cf/seed.js`, при першому запуску копіюються в таблицю `auth` у D1. Таблиці й стартовий контент воркер створює сам (`ensureDb`); D1 і KV створює wrangler при першому деплої.
 - Попередні хостинги: Render (`deputat-site.onrender.com`) і DigitalOcean VPS (видалений за несплату).
   Express-версія (`server.js`, `deploy/setup.sh`) лишається як запасний варіант для VPS.
 - **Старий запис:** https://deputat-site.onrender.com (адмінка — `/manager`)

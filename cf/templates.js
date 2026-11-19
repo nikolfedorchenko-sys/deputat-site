@@ -102,7 +102,7 @@ s = __locals.s,
     ;  if (achievements.length === 0) { 
     ; __append("\n          <p class=\"muted\">Показники додаються в адмінпанелі (розділ «Досягнення»).</p>\n        ")
     ;  } 
-    ; __append("\n      </div>\n      <div class=\"gallery-more\" data-rv><a class=\"btn-g btn-lg\" href=\"/report\">Детальний звіт 2021–2025 →</a></div>\n    </div>\n  </section>\n\n  <!-- ─────────────── Підтримка Захисників ─────────────── -->\n  <section id=\"army\" class=\"section section--white\" data-reveal>\n    <div class=\"wrap\">\n      <div class=\"sec-head\" data-rv><span class=\"sec-bar\"></span><h2>Підтримка Захисників</h2></div>\n      <p class=\"army-intro\" data-rv>\n        Від перших днів повномасштабного вторгнення — системна допомога Силам оборони:\n        ударні та розвідувальні дрони, засоби РЕБ, Starlink, генератори, автомобілі й\n        спорядження. Серед підрозділів — 92-га ОШБр імені Івана Сірка, 429-й полк\n        безпілотних систем «Ахіллес», ЦСО «Альфа» СБУ, ГУР, 241-ша та 112-та бригади ТрО.\n      </p>\n      <ul class=\"army-highlights\" data-rv>\n        <li><b>2022 — 2025</b><span>щороку, без перерв</span></li>\n        <li><b>24 виїзди</b><span>на фронт лише за 2024 рік</span></li>\n        <li><b>10+ підрозділів</b><span>ЗСУ, ТрО, ГУР, «Альфа» СБУ</span></li>\n        <li><b>Сотні FPV</b><span>ударні дрони-камікадзе</span></li>\n        <li><b>РЕБ «Купол»</b><span>захист від ворожих дронів</span></li>\n        <li><b>4 МЛПК</b><span>мобільні лазне-пральні комплекси для ТрО</span></li>\n      </ul>\n      <div class=\"report-photos army-photos\" data-rv>\n        <figure><img src=\"/img/army/home-1.jpg\" alt=\"Автомобіль для військових\" loading=\"lazy\"></figure>\n        <figure><img src=\"/img/army/home-2.jpg\" alt=\"Підтримка полку «Ахіллес»\" loading=\"lazy\"></figure>\n        <figure><img src=\"/img/army/home-3.jpg\" alt=\"Інженерна техніка для фортифікацій\" loading=\"lazy\"></figure>\n        <figure><img src=\"/img/army/home-4.jpg\" alt=\"Спорядження для Сил оборони\" loading=\"lazy\"></figure>\n        <figure><img src=\"/img/army/home-5.jpg\" alt=\"Генератори та обладнання військовим\" loading=\"lazy\"></figure>\n      </div>\n      <div class=\"gallery-more\" data-rv><a class=\"btn-g btn-lg\" href=\"/army\">Повна хронологія 2022–2025 →</a></div>\n    </div>\n  </section>\n\n  <!-- ─────────────── Новини ─────────────── -->\n  <section id=\"news\" class=\"section section--white\" data-reveal>\n    <div class=\"wrap\">\n      <div class=\"news-head\" data-rv>\n        <div class=\"sec-head\"><span class=\"sec-bar\"></span><h2>Новини</h2></div>\n        <a class=\"all-news\" href=\"#news\">Усі новини →</a>\n      </div>\n      <div class=\"cards-3\">\n        ")
+    ; __append("\n      </div>\n      <div class=\"gallery-more\" data-rv><a class=\"btn-g btn-lg\" href=\"/report\">Детальний звіт 2021–2025 →</a></div>\n    </div>\n  </section>\n\n  <!-- ─────────────── Підтримка Захисників ─────────────── -->\n  <section id=\"army\" class=\"section section--white\" data-reveal>\n    <div class=\"wrap\">\n      <div class=\"sec-head\" data-rv><span class=\"sec-bar\"></span><h2>Підтримка Захисників</h2></div>\n      <p class=\"army-intro\" data-rv>\n        Від перших днів повномасштабного вторгнення — системна допомога Силам оборони:\n        ударні та розвідувальні дрони, засоби РЕБ, Starlink, генератори, автомобілі й\n        спорядження. Серед підрозділів — 92-га ОШБр імені Івана Сірка, 429-й полк\n        безпілотних систем «Ахіллес», ЦСО «Альфа» СБУ, ГУР, 241-ша та 112-та бригади ТрО.\n      </p>\n      <ul class=\"army-highlights\" data-rv>\n        <li><b>2022 — 2025</b><span>щороку, без перерв</span></li>\n        <li><b>24 виїзди</b><span>на фронт лише за 2024 рік</span></li>\n        <li><b>10+ підрозділів</b><span>ЗСУ, ТрО, ГУР, «Альфа» СБУ</span></li>\n        <li><b>Сотні FPV</b><span>ударні дрони-камікадзе</span></li>\n        <li><b>РЕБ «Купол»</b><span>захист від ворожих дронів</span></li>\n        <li><b>4 МЛПК</b><span>мобільні лазне-пральні комплекси для ТрО</span></li>\n      </ul>\n      <div class=\"report-photos army-photos\" data-rv>\n        <figure><img src=\"/img/army/home-1.jpg\" alt=\"Автомобіль для військових\" loading=\"lazy\"></figure>\n        <figure><img src=\"/img/army/home-2.jpg\" alt=\"Підтримка полку «Ахіллес»\" loading=\"lazy\"></figure>\n        <figure><img src=\"/img/army/home-3.jpg\" alt=\"Інженерна техніка для фортифікацій\" loading=\"lazy\"></figure>\n        <figure><img src=\"/img/army/home-4.jpg\" alt=\"Спорядження для Сил оборони\" loading=\"lazy\"></figure>\n        <figure><img src=\"/img/army/home-5.jpg\" alt=\"Генератори та обладнання військовим\" loading=\"lazy\"></figure>\n      </div>\n      <div class=\"gallery-more\" data-rv><a class=\"btn-g btn-lg\" href=\"/army\">Повна хронологія 2022–2025 →</a></div>\n    </div>\n  </section>\n\n  <!-- ─────────────── Новини ─────────────── -->\n  <section id=\"news\" class=\"section section--white\" data-reveal>\n    <div class=\"wrap\">\n      <div class=\"news-head\" data-rv>\n        <div class=\"sec-head\"><span class=\"sec-bar\"></span><h2>Новини</h2></div>\n        <a class=\"all-news\" href=\"/news\">Усі новини →</a>\n      </div>\n      <div class=\"cards-3\">\n        ")
     ;  news.slice(0, 6).forEach(function(n){ 
     ; __append("\n          <a href=\"/news/")
     ; __append(escapeFn( n.id ))
@@ -265,7 +265,7 @@ s = __locals.s,
     ; __append(escapeFn( post.cover_image || s.og_image ))
     ; __append("\" />\n\n  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\n  <link rel=\"preconnect\" href=\"https://cdn.jsdelivr.net\" crossorigin />\n  <link href=\"https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap\" rel=\"stylesheet\" />\n  <link rel=\"stylesheet\" href=\"/css/style.css\" />\n</head>\n<body>\n\n<div id=\"pbar\"></div>\n\n<nav id=\"siteNav\" class=\"nav\" aria-label=\"Головна навігація\">\n  <a class=\"nav__brand\" href=\"/\" aria-label=\"На головну\">\n    <span class=\"mono\">ЮТ</span>\n    <span class=\"nav__id\">\n      <span class=\"nav__name\">")
     ; __append(escapeFn( s.hero_name ))
-    ; __append("</span>\n      <span class=\"nav__role\">Депутат Київради · округ №12</span>\n    </span>\n  </a>\n  <div class=\"nav__links\" id=\"navLinks\">\n    <a href=\"/#about\" class=\"nl\">Про депутата</a>\n    <a href=\"/#activity\" class=\"nl\">Діяльність</a>\n    <a href=\"/#results\" class=\"nl\">Досягнення</a>\n    <a href=\"/#army\" class=\"nl\">Захисникам</a>\n    <a href=\"/#news\" class=\"nl\">Новини</a>\n    <a href=\"/#gallery\" class=\"nl\">Галерея</a>\n    <a href=\"/#contacts\" class=\"nl\">Контакти</a>\n  </div>\n  <a href=\"/#contacts\" class=\"btn-g nav__cta\">Звернутися</a>\n  <button class=\"nav-toggle\" id=\"navToggle\" aria-label=\"Меню\" aria-expanded=\"false\">\n    <span></span><span></span><span></span>\n  </button>\n</nav>\n\n<main>\n  <article class=\"section section--white news-article\">\n    <div class=\"wrap wrap--narrow\">\n      <a class=\"gallery-back\" href=\"/#news\">← Усі новини</a>\n      <div class=\"news-article__meta\">\n        ")
+    ; __append("</span>\n      <span class=\"nav__role\">Депутат Київради · округ №12</span>\n    </span>\n  </a>\n  <div class=\"nav__links\" id=\"navLinks\">\n    <a href=\"/#about\" class=\"nl\">Про депутата</a>\n    <a href=\"/#activity\" class=\"nl\">Діяльність</a>\n    <a href=\"/#results\" class=\"nl\">Досягнення</a>\n    <a href=\"/#army\" class=\"nl\">Захисникам</a>\n    <a href=\"/#news\" class=\"nl\">Новини</a>\n    <a href=\"/#gallery\" class=\"nl\">Галерея</a>\n    <a href=\"/#contacts\" class=\"nl\">Контакти</a>\n  </div>\n  <a href=\"/#contacts\" class=\"btn-g nav__cta\">Звернутися</a>\n  <button class=\"nav-toggle\" id=\"navToggle\" aria-label=\"Меню\" aria-expanded=\"false\">\n    <span></span><span></span><span></span>\n  </button>\n</nav>\n\n<main>\n  <article class=\"section section--white news-article\">\n    <div class=\"wrap wrap--narrow\">\n      <a class=\"gallery-back\" href=\"/news\">← Усі новини</a>\n      <div class=\"news-article__meta\">\n        ")
     ;  if (post.tag) { 
     ; __append("<span class=\"tag\">")
     ; __append(escapeFn( post.tag ))
@@ -298,6 +298,115 @@ s = __locals.s,
     ; __append("\n        </div>\n      </div>\n    ")
     ;  } 
     ; __append("\n\n    <div class=\"wrap wrap--narrow\">\n      <div class=\"news-article__foot\">\n        <a class=\"btn-g btn-lg\" href=\"/#news\">← Повернутися до новин</a>\n      </div>\n    </div>\n  </article>\n</main>\n\n<div class=\"foot-line\"></div>\n<footer class=\"footer\">\n  <div class=\"wrap foot-inner\">\n    <div class=\"foot-brand\">\n      <span class=\"mono\">ЮТ</span>\n      <span class=\"foot-id\">")
+    ; __append(escapeFn( s.hero_name ))
+    ; __append("<br><span>Депутат Київради · округ №12</span></span>\n    </div>\n    <nav class=\"foot-links\" aria-label=\"Офіційні посилання\">\n      ")
+    ;  if (s.kyivrada_url) { 
+    ; __append("<a href=\"")
+    ; __append(escapeFn( s.kyivrada_url ))
+    ; __append("\" target=\"_blank\" rel=\"noopener\">Профіль на сайті Київради</a>")
+    ;  } 
+    ; __append("\n      ")
+    ;  if (s.facebook_url) { 
+    ; __append("<a href=\"")
+    ; __append(escapeFn( s.facebook_url ))
+    ; __append("\" target=\"_blank\" rel=\"noopener\">Facebook: Юрій Тихонович</a>")
+    ;  } 
+    ; __append("\n    </nav>\n    <div class=\"foot-copy\">© ")
+    ; __append(escapeFn( new Date().getFullYear() ))
+    ; __append(". Усі права захищені.</div>\n  </div>\n</footer>\n\n<script src=\"/js/main.js\"></script>\n</body>\n</html>\n")
+  return __output;
+
+},
+  "news-list": function anonymous(locals, escapeFn, include, rethrow
+) {
+"use strict";
+escapeFn = escapeFn || function (markup) {
+  return markup == undefined
+    ? ''
+    : String(markup)
+      .replace(_MATCH_HTML, encode_char);
+};
+var _ENCODE_HTML_RULES = {
+      "&": "&amp;"
+    , "<": "&lt;"
+    , ">": "&gt;"
+    , '"': "&#34;"
+    , "'": "&#39;"
+    }
+  , _MATCH_HTML = /[&<>'"]/g;
+function encode_char(c) {
+  return _ENCODE_HTML_RULES[c] || c;
+};
+;
+  var __output = "";
+  function __append(s) { if (s !== undefined && s !== null) __output += s }
+  var __locals = (locals || {}),
+s = __locals.s,
+  news = __locals.news,
+  gallery = __locals.gallery,
+  achievements = __locals.achievements,
+  post = __locals.post,
+  bodyHtml = __locals.bodyHtml,
+  extraImages = __locals.extraImages,
+  username = __locals.username,
+  error = __locals.error,
+  esc = __locals.esc,
+  nl2br = __locals.nl2br,
+  paragraphs = __locals.paragraphs,
+  stripPhotoTokens = __locals.stripPhotoTokens;
+    ; __append("<!DOCTYPE html>\n<html lang=\"uk\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>Новини — ")
+    ; __append(escapeFn( s.hero_name ))
+    ; __append("</title>\n  <meta name=\"description\" content=\"Новини депутата Київради ")
+    ; __append(escapeFn( s.hero_name ))
+    ; __append(": робота в Київраді, Київміськбуді, «Медбуді» та на окрузі №12.\" />\n  <meta property=\"og:title\" content=\"Новини — ")
+    ; __append(escapeFn( s.hero_name ))
+    ; __append("\" />\n  <meta property=\"og:image\" content=\"")
+    ; __append(escapeFn( (news[0] && news[0].cover_image) || s.og_image ))
+    ; __append("\" />\n\n  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\n  <link rel=\"preconnect\" href=\"https://cdn.jsdelivr.net\" crossorigin />\n  <link href=\"https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap\" rel=\"stylesheet\" />\n  <link rel=\"stylesheet\" href=\"/css/style.css\" />\n</head>\n<body>\n\n<div id=\"pbar\"></div>\n\n<!-- Навбар (посилання ведуть на головну) -->\n<nav id=\"siteNav\" class=\"nav\" aria-label=\"Головна навігація\">\n  <a class=\"nav__brand\" href=\"/\" aria-label=\"На головну\">\n    <span class=\"mono\">ЮТ</span>\n    <span class=\"nav__id\">\n      <span class=\"nav__name\">")
+    ; __append(escapeFn( s.hero_name ))
+    ; __append("</span>\n      <span class=\"nav__role\">Депутат Київради · округ №12</span>\n    </span>\n  </a>\n  <div class=\"nav__links\" id=\"navLinks\">\n    <a href=\"/#about\" class=\"nl\">Про депутата</a>\n    <a href=\"/#activity\" class=\"nl\">Діяльність</a>\n    <a href=\"/#results\" class=\"nl\">Досягнення</a>\n    <a href=\"/#army\" class=\"nl\">Захисникам</a>\n    <a href=\"/#news\" class=\"nl\">Новини</a>\n    <a href=\"/#contacts\" class=\"nl\">Контакти</a>\n  </div>\n  <a href=\"/#contacts\" class=\"btn-g nav__cta\">Звернутися</a>\n  <button class=\"nav-toggle\" id=\"navToggle\" aria-label=\"Меню\" aria-expanded=\"false\">\n    <span></span><span></span><span></span>\n  </button>\n</nav>\n\n<main>\n  <section class=\"section section--white news-page\">\n    <div class=\"wrap\">\n      <a class=\"gallery-back\" href=\"/\">← На головну</a>\n      <div class=\"sec-head\"><span class=\"sec-bar\"></span><h2>Новини</h2></div>\n      ")
+    ;  if (news.length) { 
+    ; __append("\n        <div class=\"cards-3\">\n          ")
+    ;  news.forEach(function(n){ 
+    ; __append("\n            <a href=\"/news/")
+    ; __append(escapeFn( n.id ))
+    ; __append("\" class=\"news-card card-t\">\n              <div class=\"gitem news-card__img\">\n                ")
+    ;  if (n.cover_image) { 
+    ; __append("\n                  <img class=\"gzoom\" src=\"")
+    ; __append(escapeFn( n.cover_image ))
+    ; __append("\" alt=\"")
+    ; __append(escapeFn( esc(n.title) ))
+    ; __append("\" loading=\"lazy\" />\n                ")
+    ;  } else { 
+    ; __append("\n                  <div class=\"gzoom ph-img\"><span>[ фото новини ]</span></div>\n                ")
+    ;  } 
+    ; __append("\n              </div>\n              <div class=\"news-card__body\">\n                <div class=\"news-card__meta\">\n                  ")
+    ;  if (n.tag) { 
+    ; __append("<span class=\"tag\">")
+    ; __append(escapeFn( n.tag ))
+    ; __append("</span>")
+    ;  } 
+    ; __append("\n                  <time datetime=\"")
+    ; __append(escapeFn( n.date ))
+    ; __append("\">")
+    ; __append(escapeFn( n.date.split('-').reverse().join('.') ))
+    ; __append("</time>\n                </div>\n                <h3 class=\"news-card__title\">")
+    ; __append(escapeFn( n.title ))
+    ; __append("</h3>\n                ")
+    ;  const teaser = stripPhotoTokens(n.body).replace(/\s+/g, ' ').trim(); 
+    ; __append("\n                ")
+    ;  if (teaser) { 
+    ; __append("<p class=\"news-card__text\">")
+    ; __append(escapeFn( teaser.length > 120 ? teaser.slice(0, 120) + '…' : teaser ))
+    ; __append("</p>")
+    ;  } 
+    ; __append("\n                <span class=\"news-card__more\">Читати повністю →</span>\n              </div>\n            </a>\n          ")
+    ;  }); 
+    ; __append("\n        </div>\n      ")
+    ;  } else { 
+    ; __append("\n        <p class=\"muted\">Новини з’являться незабаром.</p>\n      ")
+    ;  } 
+    ; __append("\n    </div>\n  </section>\n</main>\n\n<div class=\"foot-line\"></div>\n<footer class=\"footer\">\n  <div class=\"wrap foot-inner\">\n    <div class=\"foot-brand\">\n      <span class=\"mono\">ЮТ</span>\n      <span class=\"foot-id\">")
     ; __append(escapeFn( s.hero_name ))
     ; __append("<br><span>Депутат Київради · округ №12</span></span>\n    </div>\n    <nav class=\"foot-links\" aria-label=\"Офіційні посилання\">\n      ")
     ;  if (s.kyivrada_url) { 

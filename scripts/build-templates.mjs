@@ -8,7 +8,7 @@ const require = createRequire(import.meta.url);
 const ejs = require('ejs');
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const VIEWS = ['index', 'news', 'report', 'army', 'gallery', 'manager/login', 'manager/dashboard'];
+const VIEWS = ['index', 'news', 'news-list', 'report', 'army', 'gallery', 'manager/login', 'manager/dashboard'];
 // Усі змінні, які шаблони отримують ззовні (дані + хелпери)
 const LOCALS = ['s', 'news', 'gallery', 'achievements', 'post', 'bodyHtml', 'extraImages',
   'username', 'error', 'esc', 'nl2br', 'paragraphs', 'stripPhotoTokens'];

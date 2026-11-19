@@ -26,6 +26,9 @@ const helpers = {
   stripPhotoTokens: (str) => String(str || '').replace(/\[\s*(?:фото|photo)\s*\d+\s*\]/gi, ' '),
 };
 
+// Робить http(s)-посилання в (уже екранованому) тексті клікабельними
+const linkify = (escaped) => escaped.replace(/https?:\/\/[^\s<]+[^\s<.,;:!?)»”"']/g,
+  (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
 const PHOTO_TOKEN = /^\[\s*(?:фото|photo)\s*(\d+)\s*\]$/i;
 function renderArticleBody(body, images) {
   const imgs = Array.isArray(images) ? images : [];
@@ -41,7 +44,7 @@ function renderArticleBody(body, images) {
       used.add(idx);
       return `<figure class="news-inline"><img src="${escapeHtml(img.path)}" alt="Фото до новини" loading="lazy"></figure>`;
     }
-    return `<p>${escapeHtml(t).replace(/\r?\n/g, '<br>')}</p>`;
+    return `<p>${linkify(escapeHtml(t)).replace(/\r?\n/g, '<br>')}</p>`;
   }).join('\n');
   return { html, leftover: imgs.filter((_, i) => !used.has(i)) };
 }
@@ -519,6 +522,14 @@ async function handle(request, env) {
     if (nm) return pageNews(env, Number(nm[1]));
     if (path === '/report') return render('report', { s: await getAllSettings(db) });
     if (path === '/army') return render('army', { s: await getAllSettings(db) });
+    if (path === '/news') {
+      const [s, news] = await Promise.all([
+        getAllSettings(db),
+        all(db, `SELECT id, title, date, tag, body, cover_image FROM news
+                  WHERE status = 'published' ORDER BY date DESC, id DESC`),
+      ]);
+      return render('news-list', { s, news });
+    }
     if (path === '/gallery') {
       const [s, gallery] = await Promise.all([
         getAllSettings(db),

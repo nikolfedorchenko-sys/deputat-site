@@ -190,6 +190,15 @@ app.get('/army', (req, res) => {
   res.render('army', { s: getAllSettings() });
 });
 
+// Усі новини
+app.get('/news', (req, res) => {
+  const news = db
+    .prepare(`SELECT id, title, date, tag, body, cover_image FROM news
+               WHERE status = 'published' ORDER BY date DESC, id DESC`)
+    .all();
+  res.render('news-list', { s: getAllSettings(), news });
+});
+
 // Окрема сторінка галереї (усі фото)
 app.get('/gallery', (req, res) => {
   const s = getAllSettings();

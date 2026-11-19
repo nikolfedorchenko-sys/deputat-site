@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Новини — <%= s.hero_name %></title>
+  <meta name="description" content="Новини депутата Київради <%= s.hero_name %>: робота в Київраді, Київміськбуді, «Медбуді» та на окрузі №12." />
+  <meta property="og:title" content="Новини — <%= s.hero_name %>" />
+  <meta property="og:image" content="<%= (news[0] && news[0].cover_image) || s.og_image %>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div id="pbar"></div>
+
+<!-- Навбар (посилання ведуть на головну) -->
+<nav id="siteNav" class="nav" aria-label="Головна навігація">
+  <a class="nav__brand" href="/" aria-label="На головну">
+    <span class="mono">ЮТ</span>
+    <span class="nav__id">
+      <span class="nav__name"><%= s.hero_name %></span>
+      <span class="nav__role">Депутат Київради · округ №12</span>
+    </span>
+  </a>
+  <div class="nav__links" id="navLinks">
+    <a href="/#about" class="nl">Про депутата</a>
+    <a href="/#activity" class="nl">Діяльність</a>
+    <a href="/#results" class="nl">Досягнення</a>
+    <a href="/#army" class="nl">Захисникам</a>
+    <a href="/#news" class="nl">Новини</a>
+    <a href="/#contacts" class="nl">Контакти</a>
+  </div>
+  <a href="/#contacts" class="btn-g nav__cta">Звернутися</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <section class="section section--white news-page">
+    <div class="wrap">
+      <a class="gallery-back" href="/">← На головну</a>
+      <div class="sec-head"><span class="sec-bar"></span><h2>Новини</h2></div>
+      <% if (news.length) { %>
+        <div class="cards-3">
+          <% news.forEach(function(n){ %>
+            <a href="/news/<%= n.id %>" class="news-card card-t">
+              <div class="gitem news-card__img">
+                <% if (n.cover_image) { %>
+                  <img class="gzoom" src="<%= n.cover_image %>" alt="<%= esc(n.title) %>" loading="lazy" />
+                <% } else { %>
+                  <div class="gzoom ph-img"><span>[ фото новини ]</span></div>
+                <% } %>
+              </div>
+              <div class="news-card__body">
+                <div class="news-card__meta">
+                  <% if (n.tag) { %><span class="tag"><%= n.tag %></span><% } %>
+                  <time datetime="<%= n.date %>"><%= n.date.split('-').reverse().join('.') %></time>
+                </div>
+                <h3 class="news-card__title"><%= n.title %></h3>
+                <% const teaser = stripPhotoTokens(n.body).replace(/\s+/g, ' ').trim(); %>
+                <% if (teaser) { %><p class="news-card__text"><%= teaser.length > 120 ? teaser.slice(0, 120) + '…' : teaser %></p><% } %>
+                <span class="news-card__more">Читати повністю →</span>
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <p class="muted">Новини з’являться незабаром.</p>
+      <% } %>
+    </div>
+  </section>
+</main>
+
+<div class="foot-line"></div>
+<footer class="footer">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <span class="mono">ЮТ</span>
+      <span class="foot-id"><%= s.hero_name %><br><span>Депутат Київради · округ №12</span></span>
+    </div>
+    <nav class="foot-links" aria-label="Офіційні посилання">
+      <% if (s.kyivrada_url) { %><a href="<%= s.kyivrada_url %>" target="_blank" rel="noopener">Профіль на сайті Київради</a><% } %>
+      <% if (s.facebook_url) { %><a href="<%= s.facebook_url %>" target="_blank" rel="noopener">Facebook: Юрій Тихонович</a><% } %>
+    </nav>
+    <div class="foot-copy">© <%= new Date().getFullYear() %>. Усі права захищені.</div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

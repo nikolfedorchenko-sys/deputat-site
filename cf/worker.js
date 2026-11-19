@@ -530,13 +530,8 @@ async function handle(request, env) {
       ]);
       return render('news-list', { s, news });
     }
-    if (path === '/gallery') {
-      const [s, gallery] = await Promise.all([
-        getAllSettings(db),
-        all(db, 'SELECT id, path, caption FROM gallery ORDER BY sort_order ASC, id ASC'),
-      ]);
-      return render('gallery', { s, gallery });
-    }
+    // Галерею прибрано: старі посилання ведуть на головну
+    if (path === '/gallery') return Response.redirect(new URL('/', request.url).toString(), 301);
   }
 
   // Адмінка: вхід / вихід / сторінка

@@ -199,14 +199,8 @@ app.get('/news', (req, res) => {
   res.render('news-list', { s: getAllSettings(), news });
 });
 
-// Окрема сторінка галереї (усі фото)
-app.get('/gallery', (req, res) => {
-  const s = getAllSettings();
-  const gallery = db
-    .prepare('SELECT id, path, caption FROM gallery ORDER BY sort_order ASC, id ASC')
-    .all();
-  res.render('gallery', { s, gallery });
-});
+// Галерею прибрано: старі посилання ведуть на головну
+app.get('/gallery', (req, res) => res.redirect(301, '/'));
 
 // Адмінпанель (сторінка) — під захистом
 app.get('/manager', requireAuthPage, (req, res) => {

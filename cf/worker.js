@@ -68,6 +68,8 @@ const SECURITY_HEADERS = {
   'Referrer-Policy': 'no-referrer',
   'X-Frame-Options': 'SAMEORIGIN',
   'Strict-Transport-Security': 'max-age=15552000; includeSubDomains',
+  // Позначка версії: видно, чи опублікувалася остання збірка
+  'X-Site-Version': '2026-11-19.1',
 };
 
 function html(body, status = 200, extra = {}) {
